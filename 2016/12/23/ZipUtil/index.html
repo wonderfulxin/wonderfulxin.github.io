@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>我的第一篇博客 | wonderful的自由空间</title>
+  <title>压缩图片单例Util | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="摘要:压缩图片的工具类，内存经常由于图片占用空间大而内存溢出，有了这个压缩最起码会好好多。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客">
-<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/21/hello-world/index.html">
+<meta property="og:title" content="压缩图片单例Util">
+<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/ZipUtil/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2016-12-23T03:04:57.194Z">
+<meta property="og:description" content="摘要:压缩图片的工具类，内存经常由于图片占用空间大而内存溢出，有了这个压缩最起码会好好多。">
+<meta property="og:updated_time" content="2016-12-23T07:35:52.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博客">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="压缩图片单例Util">
+<meta name="twitter:description" content="摘要:压缩图片的工具类，内存经常由于图片占用空间大而内存溢出，有了这个压缩最起码会好好多。">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -135,34 +135,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ZipUtil" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客
+      压缩图片单例Util
     </h1>
   
 
-        <a href="/2016/12/21/hello-world/" class="archive-article-date">
-  	<time datetime="2016-12-21T08:41:57.131Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-21</time>
+        <a href="/2016/12/23/ZipUtil/" class="archive-article-date">
+  	<time datetime="2016-12-23T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>摘要:</p>
-<p>正文:我的第一篇</p>
+        <p>摘要:压缩图片的工具类，内存经常由于图片占用空间大而内存溢出，有了这个压缩最起码会好好多。<br><a id="more"></a><br>public class ZipUtil {<br>private static ZipUtil instance;<br>private ZipUtil() {<br>}<br>public static synchronized ZipUtil getInstance() {<br>if (instance == null) {<br>    instance = new ZipUtil();<br>}<br>    return instance;<br>}<br>private File compressImage(Bitmap image) {<br>        ByteArrayOutputStream baos = new ByteArrayOutputStream();<br>        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示          不压缩，把压缩后的数据存放到baos中<br>        int options = 100;<br>        while ( baos.toByteArray().length / 1024&gt;200) {  //循环判断如果压缩后图片是否大于200kb,大于继续压缩<br>            baos.reset();//重置baos即清空baos<br>            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//这里压缩options%，把压缩后的数据存放到baos中<br>            options -= 10;//每次都减少10<br>        }<br>//        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中<br>//        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片<br>        new DateFormat();<br>        String name = DateFormat.format(“yyyyMMdd_hhmmss”,Calendar.getInstance(Locale.CHINA)) + “.JPEG”;<br>        File f = new File( “/sdcard/Image/“+name);<br>        try {<br>            FileOutputStream fos = new FileOutputStream(f);<br>            fos.write(baos.toByteArray());<br>            fos.flush();<br>            fos.close();<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>        }<br>        return f;<br>    }<br>public File getimage(String srcPath) {<br>        BitmapFactory.Options newOpts = new BitmapFactory.Options();<br>        //开始读入图片，此时把options.inJustDecodeBounds 设回true了<br>        newOpts.inJustDecodeBounds = true;<br>        Bitmap bitmap = BitmapFactory.decodeFile(srcPath,newOpts);//此时返回bm为空<br>        newOpts.inJustDecodeBounds = false;<br>        int w = newOpts.outWidth;<br>        int h = newOpts.outHeight;<br>        //现在主流手机比较多是800*480分辨率，所以高和宽我们设置为<br>        float hh = 800f;//这里设置高度为800f<br>        float ww = 480f;//这里设置宽度为480f<br>        //缩放比。由于是固定比例缩放，只用高或者宽其中一个数据进行计算即可<br>        int be = 1;//be=1表示不缩放<br>        if (w &gt; h &amp;&amp; w &gt; ww) {//如果宽度大的话根据宽度固定大小缩放<br>            be = (int) (newOpts.outWidth / ww);<br>        } else if (w &lt; h &amp;&amp; h &gt; hh) {//如果高度高的话根据宽度固定大小缩放<br>            be = (int) (newOpts.outHeight / hh);<br>        }<br>        if (be &lt;= 0)<br>            be = 1;<br>        newOpts.inSampleSize = be;//设置缩放比例<br>        //重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了<br>        bitmap = BitmapFactory.decodeFile(srcPath, newOpts);<br>        return compressImage(bitmap);//压缩好比例大小后再进行质量压缩<br>    }<br>}</p>
 
       
 
@@ -202,11 +193,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
-	</div>
-
       
 
       
@@ -257,7 +243,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/21/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/23/ZipUtil/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,18 +257,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/23/ZipUtil/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          压缩图片单例Util
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/01/hello/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第二篇博客</div>
+    <a href="/2016/12/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -295,7 +272,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="我的第一篇博客" data-url="https://wonderfulxin.github.io/2016/12/21/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="ZipUtil" data-title="压缩图片单例Util" data-url="https://wonderfulxin.github.io/2016/12/23/ZipUtil/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
