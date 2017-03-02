@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://wonderfulxin.github.io/2017/03/02/安卓抽象布局/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍">
-<meta property="og:updated_time" content="2017-03-02T07:12:03.802Z">
+<meta property="og:updated_time" content="2017-03-02T07:18:18.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓抽象布局--include、merge 、ViewStub">
 <meta name="twitter:description" content="摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍">
@@ -153,8 +153,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍<br><a id="more"></a><br>在布局优化中，Android官方提到了这三种布局&amp;lt include/&gt;、merge、ViewStub，并介绍了这三种布局各有的优势，下面也是简单说一下他们的优势，以及怎么使用，记下来权当做笔记。</p>
-<p>1、布局重用&amp;lt include/&gt; 使用如下：<br>&amp;lt LinearLayout xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a>“<br>    android:orientation=”vertical”<br>    android:layout_width=”match_parent”<br>    android:layout_height=”match_parent”<br>    android:background=”@color/app_bg”<br>    android:gravity=”center_horizontal”&gt;  </p>
+        <p>摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍<br><a id="more"></a><br>在布局优化中，Android官方提到了这三种布局 \<include>、\<merge>、\<viewstub>，并介绍了这三种布局各有的优势，下面也是简单说一下他们的优势，以及怎么使用，记下来权当做笔记。</viewstub></merge></include></p>
+<p>1、布局重用\<include> 使用如下：<br>\<linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="”match_parent”" android:layout_height="”match_parent”" android:background="@color/app_bg" android:gravity="center_horizontal">  </linearlayout></include></p>
 <pre><code>&lt;include layout=&quot;@layout/titlebar&quot;/&gt;  
 
 &lt;TextView android:layout_width=”match_parent”  
