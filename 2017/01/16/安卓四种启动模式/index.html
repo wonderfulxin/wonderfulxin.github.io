@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>html传参数乱码 | wonderful的自由空间</title>
+  <title>安卓activity四种启动模式 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要:有时候会遇到传H5参数会乱码，就是一个页面用get方法带去参数，之后在另外一个页面获取参数会乱码，顺便写出获取参数的方法">
+  <meta name="description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html传参数乱码">
-<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/传参数乱码/index.html">
+<meta property="og:title" content="安卓activity四种启动模式">
+<meta property="og:url" content="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="摘要:有时候会遇到传H5参数会乱码，就是一个页面用get方法带去参数，之后在另外一个页面获取参数会乱码，顺便写出获取参数的方法">
-<meta property="og:updated_time" content="2017-01-09T03:41:53.653Z">
+<meta property="og:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta property="og:updated_time" content="2017-01-16T03:34:04.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html传参数乱码">
-<meta name="twitter:description" content="摘要:有时候会遇到传H5参数会乱码，就是一个页面用get方法带去参数，之后在另外一个页面获取参数会乱码，顺便写出获取参数的方法">
+<meta name="twitter:title" content="安卓activity四种启动模式">
+<meta name="twitter:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -135,25 +135,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-传参数乱码" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-安卓四种启动模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      html传参数乱码
+      安卓activity四种启动模式
     </h1>
   
 
-        <a href="/2016/12/23/传参数乱码/" class="archive-article-date">
-  	<time datetime="2016-12-23T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
+        <a href="/2017/01/16/安卓四种启动模式/" class="archive-article-date">
+  	<time datetime="2017-01-16T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:有时候会遇到传H5参数会乱码，就是一个页面用get方法带去参数，之后在另外一个页面获取参数会乱码，顺便写出获取参数的方法<br><a id="more"></a><br>//获取参数的方法<br>function getQueryString(name) {<br>    var reg = new RegExp(“(^|&amp;)” + name + “=([^&amp;]*)(&amp;|$)”, “i”);<br>    var r = window.location.search.substr(1).match(reg);<br>    if (r != null) return unescape(r[2]); return null;<br>}<br>在一个URL带上参数例如：<a href="http://127.0.0.1:8020/index.html?id=205&amp;department=部门" target="_blank" rel="external">http://127.0.0.1:8020/index.html?id=205&amp;department=部门</a><br>但是这个中文会乱码，在获取的时候，这个时候我们要先给部门两个中文字先encode  之后再获取的时候再解码：index.html?id=’+id+’&amp;department=’+escape(department)+’<br>然后获取的时候就直接unescape(getQueryString(‘department’))  获取出来的就不是乱码了。</p>
+        <p>摘要:安卓activity的四种启动模式在面试中也是经常会用到的<br><a id="more"></a><br>1.standard 模式 标准模式，默认模式，每次激活都会重新创建activity，并且放到任务栈中<br>2.singletop模式 要是在栈顶是你要启用的activity 那就会重用这个activity 要是不是这个就重新启动activity<br>3.singletask模式 在栈里面查找要是有的话就复用 没有的话就重建<br>4.signleInstance模式 外部应用也可以启动你这个activity</p>
+<p>设置启动模式的位置在 AndroidManifest.xml 文件中 Activity 元素的 android:launchMode 属性。</p>
+<p>应用场景  singleTop适合接收通知启动的内容显示页面。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的。</p>
+<p>singleTask适合作为程序入口点。例如浏览器的主界面。不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走onNewIntent，并且会清空主界面上面的其他页面。</p>
+<p>singleInstance适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面，如果用于中间页面，跳转会有问题，比如：A -&gt; B (singleInstance) -&gt; C，完全退出后，在此启动，首先打开的是B。</p>
 
       
 
@@ -195,7 +199,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
 	</div>
 
       
@@ -248,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/23/传参数乱码/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,18 +266,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/23/ZipUtil/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/16/观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          压缩图片单例Util
+          观察者模式
         
       </div>
     </a>
   
   
-    <a href="/2016/12/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown语法</div>
+    <a href="/2016/12/23/face-experience/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试经验</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -286,7 +290,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="传参数乱码" data-title="html传参数乱码" data-url="https://wonderfulxin.github.io/2016/12/23/传参数乱码/"></div>
+	<div class="ds-thread" data-thread-key="安卓四种启动模式" data-title="安卓activity四种启动模式" data-url="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
