@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://wonderfulxin.github.io/2017/03/02/安卓抽象布局/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍">
-<meta property="og:updated_time" content="2017-03-02T07:31:47.388Z">
+<meta property="og:updated_time" content="2017-03-02T07:40:57.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓抽象布局--include、merge 、ViewStub">
 <meta name="twitter:description" content="摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍">
@@ -154,16 +154,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍<br><a id="more"></a><br>在布局优化中，Android官方提到了这三种布局 include、merge、ViewStub，并介绍了这三种布局各有的优势，下面也是简单说一下他们的优势，以及怎么使用，记下来权当做笔记。</p>
-<p>1、布局重用include 使用如下：<br>        <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/app_bg" android:gravity="center_horizontal">  </linearlayout></p>
+<p>1、布局重用include 使用如下：<br>      LinearLayout<br>                xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a>“<br>            android:orientation=”vertical”<br>            android:layout_width=”match_parent”<br>            android:layout_height=”match_parent”<br>            android:background=”@color/app_bg”<br>            android:gravity=”center_horizontal”&gt;  </p>
 <pre><code>    &lt;include layout=&quot;@layout/titlebar&quot;/&gt;  
 
     &lt;TextView android:layout_width=”match_parent”  
               android:layout_height=&quot;wrap_content&quot;  
               android:text=&quot;@string/hello&quot;  
               android:padding=&quot;10dp&quot; /&gt;  
-&lt;LinearLayout&gt;  
+LinearLayout 
 </code></pre><p>好处：我们写一个通用布局的时候可以用include重用，不至于写多遍，<br>比如布局一个APP的顶部布局、侧边栏布局、底部Tab栏布局、ListView和GridView每一项的布局将这些同一个APP中有多个界面用到的布局抽取出来再通过include标签引用，既可以降低layout的复杂度，又可以做到布局重用</p>
-<p>2、减少视图层级merge使用如下：<br>        <merge xmlns:android="http://schemas.android.com/apk/res/android">  </merge></p>
+<p>2、减少视图层级merge使用如下：<br>        merge<br>        xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;&gt;" target="_blank" rel="external">http://schemas.android.com/apk/res/android&quot;&gt;</a>  </p>
 <pre><code>    &lt;Button  
         android:layout_width=&quot;fill_parent&quot;   
         android:layout_height=&quot;wrap_content&quot;  
@@ -174,9 +174,9 @@
         android:layout_height=&quot;wrap_content&quot;  
         android:text=&quot;@string/delete&quot;/&gt;  
 
-&lt;/merge&gt;   
+merge   
 </code></pre><p>好处：可以删减多余的层级，优化UI，从而减少视图在绘制过程消耗的时间，达到提高UI性能的效果。</p>
-<p>3、需要时使用ViewStub 使用如下：<br>        <viewstub android:id="@+id/stub_import" android:inflatedid="@+id/panel_import" android:layout="@layout/progress_overlay" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_gravity="bottom"><br>好处：最大的优点是当你需要时才会加载，他并不会影响UI初始化时的性能，各种不常用的布局想进度条、显示错误消息等可以使用<viewstub>标签，以减少内存使用量，加快渲染速度。<viewstub>是一个不可见的，大小为0的View。</viewstub></viewstub></viewstub></p>
+<p>3、需要时使用ViewStub 使用如下：<br>        ViewStub<br>            android:id=”@+id/stub_import”<br>            android:inflatedId=”@+id/panel_import”<br>            android:layout=”@layout/progress_overlay”<br>            android:layout_width=”fill_parent”<br>            android:layout_height=”wrap_content”<br>            android:layout_gravity=”bottom”   /&gt;<br>好处：最大的优点是当你需要时才会加载，他并不会影响UI初始化时的性能，各种不常用的布局想进度条、显示错误消息等可以使用<viewstub>标签，以减少内存使用量，加快渲染速度。<viewstub>是一个不可见的，大小为0的View。</viewstub></viewstub></p>
 
       
 
