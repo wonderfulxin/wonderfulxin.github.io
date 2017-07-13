@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://wonderfulxin.github.io/2017/07/13/安卓listview嵌套gridview/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="摘要:经常在做安卓的时候会有这样的需求，listview嵌套gridview来使用">
-<meta property="og:updated_time" content="2017-07-13T02:00:08.718Z">
+<meta property="og:updated_time" content="2017-07-13T03:12:20.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓嵌套listview gridview">
 <meta name="twitter:description" content="摘要:经常在做安卓的时候会有这样的需求，listview嵌套gridview来使用">
@@ -154,8 +154,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要:经常在做安卓的时候会有这样的需求，listview嵌套gridview来使用<br><a id="more"></a></p>
-<p>经常在做安卓的时候会有这样的需求，listview嵌套gridview来使用<br>但是实际试过之后就会发现这样做有一个问题，无论ListView的高度怎么设置，<br>都会只显示一行的高度，那是由于ListView的父容器测量模式为UNSPECIFIED的时候，gridviewView的高度默认为一个item的高度，这样我们就重写ListView的onMeasure方法，来自定义高度：<br>public class FixedGridView extends GridView {<br>    public boolean onMeasure = false;//用于判断的布尔值，只有完成计算，即onLayout后才为false,在onMeasure时为true<br>    public FixedGridView(Context context)<br>    {<br>        super(context);<br>    }</p>
-<pre><code>public FixedGridView(Context context, AttributeSet attrs)
+<p>经常在做安卓的时候会有这样的需求，listview嵌套gridview来使用<br>但是实际试过之后就会发现这样做有一个问题，无论ListView的高度怎么设置，<br>都会只显示一行的高度，那是由于ListView的父容器测量模式为UNSPECIFIED的时候，gridviewView的高度默认为一个item的高度，这样我们就重写ListView的onMeasure方法，来自定义高度：</p>
+<pre><code>public class FixedGridView extends GridView {
+public boolean onMeasure = false;//用于判断的布尔值，只有完成计算，即onLayout后才为false,在onMeasure时为true
+public FixedGridView(Context context)
+{
+    super(context);
+}
+
+public FixedGridView(Context context, AttributeSet attrs)
 {
     super(context, attrs);
 }
@@ -289,8 +296,8 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
 <nav id="article-nav">
   
   
-    <a href="/2017/03/02/安卓抽象布局/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">安卓抽象布局--include、merge 、ViewStub</div>
+    <a href="/2017/07/13/发布的git代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用git发布文件的时候需要注意的东西</div>
       <i class="icon-circle-right"></i>
     </a>
   
