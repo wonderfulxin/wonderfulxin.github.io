@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>观察者模式 | wonderful的自由空间</title>
+  <title>安卓传递数据 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要:前几天面试的时候，说到这个问题观察者模式，面试官说setonclicklistener不是观察者模式，我当时也是楞了一下，硬是附和着面试官说不是观察者模式了~~其实点击事件是一个回调，但是同时也是一对一的观察者模式">
+  <meta name="description" content="摘要:安卓传递数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="观察者模式">
-<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/观察者模式/index.html">
+<meta property="og:title" content="安卓传递数据">
+<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/Android基础 -- Activity之间传递数据（bitmap和map对象）/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="摘要:前几天面试的时候，说到这个问题观察者模式，面试官说setonclicklistener不是观察者模式，我当时也是楞了一下，硬是附和着面试官说不是观察者模式了~~其实点击事件是一个回调，但是同时也是一对一的观察者模式">
-<meta property="og:updated_time" content="2017-01-16T01:52:41.844Z">
+<meta property="og:description" content="摘要:安卓传递数据">
+<meta property="og:updated_time" content="2017-05-31T02:49:28.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="观察者模式">
-<meta name="twitter:description" content="摘要:前几天面试的时候，说到这个问题观察者模式，面试官说setonclicklistener不是观察者模式，我当时也是楞了一下，硬是附和着面试官说不是观察者模式了~~其实点击事件是一个回调，但是同时也是一对一的观察者模式">
+<meta name="twitter:title" content="安卓传递数据">
+<meta name="twitter:description" content="摘要:安卓传递数据">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -135,32 +135,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-观察者模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android基础 -- Activity之间传递数据（bitmap和map对象）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      观察者模式
+      安卓传递数据
     </h1>
   
 
-        <a href="/2016/12/23/观察者模式/" class="archive-article-date">
-  	<time datetime="2016-12-23T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
+        <a href="/2016/12/23/Android基础 -- Activity之间传递数据（bitmap和map对象）/" class="archive-article-date">
+  	<time datetime="2016-12-23T14:37:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:前几天面试的时候，说到这个问题观察者模式，面试官说setonclicklistener不是观察者模式，我当时也是楞了一下，硬是附和着面试官说不是观察者模式了~~其实点击事件是一个回调，但是同时也是一对一的观察者模式<br><a id="more"></a><br>接下来我们看看观察者模式在android中的应用。我们从最简单的开始。还记得我们为一个Button设置点击事件的代码吗。<br>Button btn=new Button(this);<br>btn.setOnClickListener(new View.OnClickListener() {<br>    @Override<br>    public void onClick(View v) {<br>        Log.e(“TAG”,”click”);<br>    }<br>});<br>其实严格意义上讲，这个最多算是回调，但是我们可以将其看成是一对一的观察者模式，即只有一个观察者。</p>
-<p>其实只要是set系列的设置监听器的方法最多都只能算《回调》，但是有一些监听器式《add》进去的，这种就是观察者模式了，比如RecyclerView中的addOnScrollListener方法<br>private List<onscrolllistener> mScrollListeners;<br>public void addOnScrollListener(OnScrollListener listener) {<br>    if (mScrollListeners == null) {<br>        mScrollListeners = new ArrayList<onscrolllistener>();<br>    }<br>    mScrollListeners.add(listener);<br>}<br>public void removeOnScrollListener(OnScrollListener listener) {<br>    if (mScrollListeners != null) {<br>        mScrollListeners.remove(listener);<br>    }<br>}<br>public void clearOnScrollListeners() {<br>    if (mScrollListeners != null) {<br>        mScrollListeners.clear();<br>    }<br>}<br>然后有滚动事件时便会触发观察者进行方法回调<br>public abstract static class OnScrollListener {<br>    public void onScrollStateChanged(RecyclerView recyclerView, int newState){}<br>    public void onScrolled(RecyclerView recyclerView, int dx, int dy){}<br>}</onscrolllistener></onscrolllistener></p>
-<p>void dispatchOnScrolled(int hresult, int vresult) {<br>    //…<br>    if (mScrollListeners != null) {<br>        for (int i = mScrollListeners.size() - 1; i &gt;= 0; i–) {<br>            mScrollListeners.get(i).onScrolled(this, hresult, vresult);<br>        }<br>    }<br>}<br>void dispatchOnScrollStateChanged(int state) {<br>    //…<br>    if (mScrollListeners != null) {<br>        for (int i = mScrollListeners.size() - 1; i &gt;= 0; i–) {<br>            mScrollListeners.get(i).onScrollStateChanged(this, state);<br>        }<br>    }<br>}<br>类似的方法很多很多，都是add监听器系列的方法，这里也不再举例。</p>
-<p>还有一个地方就是Android的广播机制，其本质也是观察者模式，这里为了简单方便，直接拿本地广播的代码说明，即LocalBroadcastManager。</p>
-<p>我们平时使用本地广播主要就是下面四个方法<br>LocalBroadcastManager localBroadcastManager=LocalBroadcastManager.getInstance(this);<br>localBroadcastManager.registerReceiver(BroadcastReceiver receiver, IntentFilter filter);<br>localBroadcastManager.unregisterReceiver(BroadcastReceiver receiver);<br>localBroadcastManager.sendBroadcast(Intent intent)<br>调用registerReceiver方法注册广播，调用unregisterReceiver方法取消注册，之后直接使用sendBroadcast发送广播，发送广播之后，注册的广播会收到对应的广播信息，这就是典型的观察者模式。具体的源代码这里也不贴。</p>
-<p>android系统中的观察者模式还有很多很多，有兴趣的自己去挖掘，接下来我们看一下一些开源框架中的观察者模式。一说到开源框架，你首先想到的应该是EventBus。没错，EventBus也是基于观察者模式的。</p>
-<p>观察者模式的三个典型方法它都具有，即注册，取消注册，发送事件<br>EventBus.getDefault().register(Object subscriber);<br>EventBus.getDefault().unregister(Object subscriber);</p>
-<p>EventBus.getDefault().post(Object event);<br>内部源码也不展开了。</p>
+        <p>摘要:安卓传递数据<br><a id="more"></a><br>正文:面试的时候遇到这个，记下来以后可以用，之前没有用过</p>
+<p>第一个：传递bitmap</p>
+<p>  这个问题非常奇葩（可能我Android水平还不够），居然不会报错，我是直接用bundle或Intent的extral域直接存放bitmap，结果运行时各种宕机，各种界面乱窜（我非常的纳闷）。。。搜索之后看大家都说不能直接传递大于40k的图片，然后在德问论坛上找到了解法。就是把bitmap存储为byte数组，然后再通过Intent传递。</p>
+<p>的 </p>
+<p> 代码如下所示：</p>
+<p>Bitmap bmp=((BitmapDrawable)order_con_pic.getDrawable()).getBitmap();<br>Intent intent=new Intent(OrderConfirm.this,ShowWebImageActivity.class);<br>ByteArrayOutputStream baos=new ByteArrayOutputStream();<br>bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);<br>byte [] bitmapByte =baos.toByteArray();<br>intent.putExtra(“bitmap”, bitmapByte);<br>startActivity(intent);  </p>
+<p>其中 第一行代码就是如何从一个imageview中获得其图片，这个问题也倒腾了下，貌似用setDrawingCacheEnabled也行，因为开始用的这个方法，但是直接在activity之间传递bitmap，所以导致运行时错误，后来改正之后没有再尝试。<br>先new一个ByteArrayOutputStream流，然后使用Bitmap中的compress方法，把数据压缩到一个byte中，传输就可以了。</p>
+<p>在另一个activity中取出来的方法是：</p>
+<p>imageView = (ZoomableImageView) findViewById(R.id.show_webimage_imageview);<br>        Intent intent=getIntent();<br>        if(intent !=null)<br>        {<br>            byte [] bis=intent.getByteArrayExtra(“bitmap”);<br>            Bitmap bitmap=BitmapFactory.decodeByteArray(bis, 0, bis.length);<br>            imageView.setImageBitmap(bitmap);<br>        }<br>取出来字节数组之后，用BitmapFactory中的decodeByteArray方法组合成一个bitmap就可以了。<br>再加上一个存储的代码：</p>
+<p>public void saveMyBitmap(String bitName,Bitmap mBitmap) throws IOException {<br>        File f = new File(“/sdcard/Note/“ + bitName);<br>        if(!f.exists())<br>            f.mkdirs();//如果没有这个文件夹的话，会报file not found错误<br>        f=new File(“/sdcard/Note/“+bitName+”.png”);<br>        f.createNewFile();<br>        try {<br>            FileOutputStream out = new FileOutputStream(f);<br>             mBitmap.compress(Bitmap.CompressFormat.PNG, 100, out);<br>             out.flush();<br>             out.close();<br>        } catch (FileNotFoundException e) {<br>                Log.i(TAG,e.toString());<br>        }  </p>
+<pre><code>}  
+</code></pre><p>2.传递map对象：</p>
+<p>封装到bundle中：</p>
+<p>Map<string,object> data=orderlist.get(arg2-1);<br>            SerializableMap tmpmap=new SerializableMap();<br>            tmpmap.setMap(data);<br>            bundle.putSerializable(“orderinfo”, tmpmap);<br>            intent.putExtras(bundle);  </string,object></p>
+<p>这个SeralizableMap是自己封装的一个实现了Serializable接口的类：<br>public class SerializableMap implements Serializable {<br>    private Map<string,object> map;<br>    public Map<string,object> getMap()<br>    {<br>        return map;<br>    }<br>    public void setMap(Map<string,object> map)<br>    {<br>        this.map=map;<br>    }<br>}<br>这样才能把map对象扔到bundle中去，<br>取出来的方法是：</string,object></string,object></string,object></p>
+<p>Bundle bundle = getIntent().getExtras();<br>        SerializableMap serializableMap = (SerializableMap) bundle<br>                .get(“orderinfo”);  </p>
 
       
 
@@ -202,10 +210,15 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/安卓/">安卓</a>
+	</div>
+
 
       
 
@@ -255,7 +268,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/23/观察者模式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/23/Android基础 -- Activity之间传递数据（bitmap和map对象）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -269,18 +282,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/23/安卓四种启动模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/16/观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安卓activity四种启动模式
+          观察者模式
         
       </div>
     </a>
   
   
-    <a href="/2016/12/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown语法</div>
+    <a href="/2016/12/23/面试经验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试经验</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -293,7 +306,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="观察者模式" data-title="观察者模式" data-url="https://wonderfulxin.github.io/2016/12/23/观察者模式/"></div>
+	<div class="ds-thread" data-thread-key="Android基础 -- Activity之间传递数据（bitmap和map对象）" data-title="安卓传递数据" data-url="https://wonderfulxin.github.io/2016/12/23/Android基础 -- Activity之间传递数据（bitmap和map对象）/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

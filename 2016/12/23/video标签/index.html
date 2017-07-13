@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>安卓activity四种启动模式 | wonderful的自由空间</title>
+  <title>html5 Video标签实现 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+  <meta name="description" content="摘要:H5标签实现  在播放视频流的时候会自动全屏，可以实现不全屏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓activity四种启动模式">
-<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/安卓四种启动模式/index.html">
+<meta property="og:title" content="html5 Video标签实现">
+<meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/video标签/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
-<meta property="og:updated_time" content="2017-01-16T03:19:38.766Z">
+<meta property="og:description" content="摘要:H5标签实现  在播放视频流的时候会自动全屏，可以实现不全屏">
+<meta property="og:updated_time" content="2017-03-09T02:15:30.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓activity四种启动模式">
-<meta name="twitter:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta name="twitter:title" content="html5 Video标签实现">
+<meta name="twitter:description" content="摘要:H5标签实现  在播放视频流的时候会自动全屏，可以实现不全屏">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -135,29 +135,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-安卓四种启动模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-video标签" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      安卓activity四种启动模式
+      html5 Video标签实现
     </h1>
   
 
-        <a href="/2016/12/23/安卓四种启动模式/" class="archive-article-date">
+        <a href="/2016/12/23/video标签/" class="archive-article-date">
   	<time datetime="2016-12-23T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-23</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:安卓activity的四种启动模式在面试中也是经常会用到的<br><a id="more"></a><br>1.standard 模式 标准模式，默认模式，每次激活都会重新创建activity，并且放到任务栈中<br>2.singletop模式 要是在栈顶是你要启用的activity 那就会重用这个activity 要是不是这个就重新启动activity<br>3.singletask模式 在栈里面查找要是有的话就复用 没有的话就重建<br>4.signleInstance模式 外部应用也可以启动你这个activity</p>
-<p>设置启动模式的位置在 AndroidManifest.xml 文件中 Activity 元素的 android:launchMode 属性。</p>
-<p>应用场景  singleTop适合接收通知启动的内容显示页面。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的。</p>
-<p>singleTask适合作为程序入口点。例如浏览器的主界面。不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走onNewIntent，并且会清空主界面上面的其他页面。</p>
-<p>singleInstance适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面，如果用于中间页面，跳转会有问题，比如：A -&gt; B (singleInstance) -&gt; C，完全退出后，在此启动，首先打开的是B。</p>
+        <p>摘要:H5标签实现  在播放视频流的时候会自动全屏，可以实现不全屏<br><a id="more"></a><br>video标签还是比较常用的，在微信浏览器里面使用video标签，<br>会自动变成全屏，改成下面就好了，<br>起码可以在video标签之上加入其他元素。<br> <figure class="highlight plain"><figcaption><span>id="videoID"webkit-playsinline="true" </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x-webkit-airplay=&quot;true&quot;  playsinline=&quot;true&quot;</div><div class="line">x5-video-player-type=&quot;h5&quot;</div><div class="line">x5-video-player-fullscreen=&quot;true&quot;</div><div class="line">width=&quot;100%&quot; height=&quot;100%&quot; preload=&quot;auto&quot;  </div><div class="line">poster=&quot;&quot; src=&quot;&quot;&gt;</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure></p>
+<p>还有个问题，在Android的微信里面，<br>就算加上了上面的属性，还会出现上下有黑边，不能全屏的问题。<br>解决办法：给video加上object-fit: fill;的style属性。<br>实现方法：<br><figure class="highlight plain"><figcaption><span>id="videoplayer" controls="controls"'+ </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&apos;tabindex=&quot;0&quot; preload=&quot;metadata&quot; style=&quot;width:100%; height: 100%; overflow: hidden;object-fit: fill;&quot; &apos;+</div><div class="line">&apos;poster=&quot;http://sun1.wxdg.sun0769.com/ImageResource/video.jpg&quot; &apos;+</div><div class="line">&apos;webkit-playsinline=&quot;true&quot; x-webkit-airplay=&quot;true&quot;  playsinline=&quot;true&quot; &apos;+</div><div class="line">&apos;x5-video-player-fullscreen=&quot;true&quot;&gt;&lt;/video&gt;&apos;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -199,7 +196,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li></ul>
 	</div>
 
       
@@ -252,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/23/安卓四种启动模式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2016/12/23/video标签/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,18 +263,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/23/传参数乱码/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/23/ZipUtil/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          html传参数乱码
+          压缩图片单例Util
         
       </div>
     </a>
   
   
-    <a href="/2016/12/23/观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">观察者模式</div>
+    <a href="/2016/12/23/传参数乱码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html传参数乱码</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -290,7 +287,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="安卓四种启动模式" data-title="安卓activity四种启动模式" data-url="https://wonderfulxin.github.io/2016/12/23/安卓四种启动模式/"></div>
+	<div class="ds-thread" data-thread-key="video标签" data-title="html5 Video标签实现" data-url="https://wonderfulxin.github.io/2016/12/23/video标签/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
