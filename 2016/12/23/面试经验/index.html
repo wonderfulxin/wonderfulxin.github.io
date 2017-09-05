@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/面试经验/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="摘要:安卓面试经验">
-<meta property="og:updated_time" content="2016-12-23T07:54:06.976Z">
+<meta property="og:updated_time" content="2017-08-13T03:29:17.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试经验">
 <meta name="twitter:description" content="摘要:安卓面试经验">
@@ -153,8 +153,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:安卓面试经验<br><a id="more"></a><br>正文:我的第一篇</p>
+        <p>摘要:安卓面试经验<br><a id="more"></a><br>正文:我的第一篇<br>公司面临重组，项目重新搭建，薪资不到位，公司倒闭，都会使大家重新选择新的公司，楼主也准备重新寻找目标，希望自己能尽快找到新东家。<br>在这里写下安卓常见的面试题目：</p>
+<p>1，Linklist与Arraylist区别  hashmap 与hashset区别 arraylist与vector的区别<br>今天上午去笔试看到这题，自己也是蒙了戈壁啊，虽然楼主arraylist用的很多，但是却完全没有注意到这两个问题啊，在这里赶紧<br>代码一下，LinkList是一个链表的集合，Arraylist是一个数组的集合<br>hashmap存储的是键值对，实现了map接口，用put存储数据<br>HashSet存储的是对象，实现了set接口，用add添加数据<br>arraylist与vector都是底层基于数组实现的，vector中的元素超过它的初始大小生成多出一倍的数据，而arraylist则生成50%的空间，vector线程安全，arraylist线程非安全<br>2，windowmanager的知识<br>3，自定义view的知识<br>4，安卓view viewgroup事件分发<br>这个问题在面试的时候好常问到，但是基本上都回答不出来，这个问题要深究一下<br>view的分发机制<br>setOnClickListener与setOnTouchListener 按钮按下的时候会先执行ontouch 之后才 onclick 当ontouch返回为true时候会屏蔽掉onclick<br>只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法，属于view的dispatchtouchevent方法<br><a href="http://blog.csdn.net/guolin_blog/article/details/9097463/" target="_blank" rel="external">http://blog.csdn.net/guolin_blog/article/details/9097463/</a></p>
+<p>viewgroup的分发机制<br>ViewGroup就是一组View的集合，它包含很多的子View和子VewGroup，是android中所有布局的父类或间接父类像LinearLayout、RelativeLayout等都是继承自ViewGroup的。<br>只不过比起View，它多了可以包含子View和定义布局参数的功能。<br>Android中touch事件的传递，绝对是先传递到ViewGroup，再传递到View的<br>onInterceptTouchEvent<br>当你点击了某个控件，首先会去调用该控件所在布局的dispatchTouchEvent方法，<br>然后在布局的dispatchTouchEvent方法中找到被点击的相应控件，再去调用该控件的dispatchTouchEvent方法。<br>如果我们点击了MyLayout中的按钮，会先去调用MyLayout的dispatchTouchEvent方法，<br>可是你会发现MyLayout中并没有这个方法。那就再到它的父类LinearLayout中找一找，发现也没有这个方法。<br>那只好继续再找LinearLayout的父类ViewGroup，你终于在ViewGroup中看到了这个方法，<br>按钮的dispatchTouchEvent方法就是在这里调用的<br><a href="http://blog.csdn.net/guolin_blog/article/details/9153747" target="_blank" rel="external">http://blog.csdn.net/guolin_blog/article/details/9153747</a></p>
+<p>5，链表与数组的区别增删查改<br>链表的组成是地址指向  链表删除增加会好用一点<br>数组的组成是一块地址分配给它 数组查找会好一点  数组删除下标下移就行了</p>
+<p>6，安卓有序广播，无序广播<br>大家都知道广播的注册方式有两种，动态注册和静态注册，静态注册就是文件清单注册，就是退出应用都是可以收到广播的，例如别人打电话来的广播，这个时候我要关闭音乐后台播放<br>动态注册跟随activity的生命周期，只要activity关闭 则广播也就自动关闭。今天问到一个有序广播无序广播，我也是蒙了戈壁啊，然后回来查了一下<br>有序广播是通过Context.sendOrderedBroadcast来发送，可以通过在intent-filter中设置android:priority属性来设置receiver的优先级。优先级相同的receiver其执行顺序不确定。<br>有序广播，即从优先级别最高的广播接收器开始接收，接收完了如果没有丢弃，就下传给下一个次高优先级别的广播接收器进行处理，依次类推，直到最后。<br>这里接收短信的广播是有序广播，因此可以设置你自己的广播接收器的级别高于系统原来的级别，就可以拦截短信，并且不存收件箱，也不会有来信提示音。</p>
+<receiver android:name=".SmsReceiver"><br>   <intent-filter android:priority="100"><br>    <action android:name="android.provider.Telephony.SMS_RECEIVED"><br>   </action></intent-filter><br></receiver>
 
+<p>7，您的代码的一个性能优化你做了什么处理<br>ListView列表滑动过程中卡顿，不流畅；应用程序自定义的某特定界面执行速度慢；<br>响应某一用户事件时长时间无响应（ANR）；操作数据库时，执行大量数据的增删改查操作，执行速度慢；<br>文件读写频繁，缓存文件过大导致卡顿；应用长时间运行后，随机出现卡顿现象。</p>
+<p>listview的滑动不流畅，这个我们第一个可以重用convertview，第二个我们要尽量减少item的层级布局，可以用merge<br>尽量复用控件，第三个getView方法中不能做复杂的逻辑计算，特别是数据库操作，否则会严重影响滑动时的性能，第四个考虑分页加载</p>
+<p>调用bitmap的时候可以适当使用软应用，不至于在图片对象没有使用的时候还没有得到内存的释放</p>
+<p>8，广播BroadCast动态注册时，记得要在调用者生命周期结束时unregisterReceiver,防止内存泄漏。这句话很重要，在onresume里面注册广播 在onpause里面注销广播 </p>
+<p>9，抽象类和接口经常都会笔试有遇到<br>其实说实话 抽象类我用都没有用过，但是接口是经常用的，所以说之前我回答的时候都是基本上靠背书上的知识<br>因为我觉得父类和接口以及够用了，所以我对抽象类的认识就停留在概念上，下面来说一下区别：<br>类都是单继承 接口可以实现多个 两个都不能被实例化 都要子类去实现 这个没得说<br>接下来说方法，抽象类中的方法可以是抽象的 也可以是非抽象的，也可以实现，有抽象方法的肯定是抽象类，抽象类不一定有抽象方法<br>接口中的方法都是抽象的，不能实现的，必须要子类去实现。<br>接下来说变量，接口中的变量都是常量，都是public static final的常量，而抽象类中的都是变量<br>这句话我觉得还是说的蛮准确的：<br>当你关注一个事物的本质的时候，用抽象类；当你关注一个操作的时候，用接口。</p>
+<p>10，string stringbuffer stringbuilder 也是经常考的面试知识<br>string是一个不能修改的变量，当string变量被赋值一个新值的时候就是新建了一个string变量<br>stringbuffer则是不会新建一个变量，只是修改原来的变量，所以说修改的时候stringbuffer的速度是大于string的<br>stringbuffer是线程安全，而stringbuilder是线程非安全，所谓线程安全和线程非安全就是指访问一个线程中的一个变量的时候<br>如果有锁定机制，不让另外的线程去访问这个变量就是线程安全，要不然就是线程非安全</p>
+<p>11，activity生命周期是一个老生常谈的一个问题，但是有时候考官还是会出比较奇葩的问题<br>onstart 与 onresume的区别  一个是执行先后的问题，另外一个是onstart是指用户可以看到 onresume是用户可以看到而且可以进行交互<br>例如有一个dialog在activity上面的时候 onstart是在执行的，但是onresume已经变成了onpause</p>
+<p>12，面试官很喜欢问的一个问题是你做安卓遇到的问题以及你解决的方法<br>问这个问题主要是面试官想要了解你的解决问题的方式<br>这里可以回答一个listview嵌套gridview 只能显示一个item 可以复写gridview onMeasure方法显示多行数据<br>设置viewpager高度 为屏幕的1/4 利用LinearLayout.LayoutParams动态设置高度  listview中间加多一个viewpager 奇葩要求 显示不出来！！ 只好动态设置高度<br>适配问题 使用不同布局layout 图片使用多套 使用动态设置高度</p>
+<p>13，安卓四大组件会安卓的人来说，基本上都不用说的了，这里说一下知识盲点<br>service启动的时候有两种一个是startservice，一个是onbindservice，这两种的区别是onbindservice是需要跟调用者绑定的<br>而startservice是不需要跟调用者绑定的，就是说onbindservice一旦调用者退出了，则service也关闭了。<br>service不管调用多少次onstartservice onbindservice，oncreateservice只会调用一次，就是只会生成一次service，但是会调用onstart方法多次</p>
+<p>14，handler的消息传递机制那是经常问到的东西，其实楼主对这东西了解不深，我只知道我用过这东西来做消息通知，就是异步线程子线程通知UI线程的UI更新<br>具体里面怎么实现的呢，我还真是一头雾水，所以每次问到的时候都是模棱两可，所以现在普及一下自己的认识，希望下次面试能说出点所以然来<br>Message：消息，其中包含了消息ID，消息处理对象以及处理的数据等，由MessageQueue统一列队，终由Handler处理。<br>Handler：处理者，负责Message的发送及处理。使用Handler时，需要实现handleMessage(Message msg)方法来对特定的Message进行处理，例如更新UI等。<br>MessageQueue：消息队列，用来存放Handler发送过来的消息，并按照FIFO规则执行。当然，存放Message并非实际意义的保存，而是将Message以链表的方式串联起来的，等待Looper的抽取。<br>Looper：消息泵，不断地从MessageQueue中抽取Message执行。因此，一个MessageQueue需要一个Looper。<br>Thread：线程，负责调度整个消息循环，即消息循环的执行场所。</p>
+<p>15，说到了handler那就顺便说说消息传递有哪几种吧<br>asynctask handler eventbus 广播   view.post（）</p>
+<p>16，内存溢出与内存泄露的区别，以及怎么就会产生这些问题，需要怎么优化？<br>内存溢出是指我申请了内存，但是不够存放，例如我用int型去存储long型的数值，就会内存溢出<br>内存泄露是指我对某一内存空间的使用，使用完成后没有释放。<br>内存优化：Android中容易内存溢出的部分，就是图片bitmap的加载，我们可以使用图片的压缩加上使用LruCache缓存的目的来控制图片所能够使用的内存。<br>还有对于比较耗资源的对象及时的关闭，例如Database Conn , 各种传感器 ， Service 等等。</p>
+<p>17，Androidstudio怎么检查内存使用？<br>有一个monitor的工具，打开就可以看到点击车的图标可以GC释放内存，然后看它的曲线与JavaHeap</p>
+<p>18，安卓多渠道打包<br>Android studio中<br>（一）在AndroidManifest.xml里设置动态渠道变量</p>
+<meta-data android:name="UMENG_CHANNEL" android:value="${UMENG_CHANNEL_VALUE}">
+
+<p>（二）在build.gradle设置productFlavors<br>（三）执行打包操作<br><a href="http://blog.csdn.net/mynameishuangshuai/article/details/51783303" target="_blank" rel="external">http://blog.csdn.net/mynameishuangshuai/article/details/51783303</a></p>
+<p>19，view与surfaceview的区别<br>SurfaceView和View最本质的区别在于，surfaceView是在一个新起的单独线程中可以重新绘制画面而View必须在UI的主线程中更新画面，渲染速度surfaceview比view快</p>
+<p>20，屏幕旋转调用的生命周期<br>不设置activity的android:onconfigchang=oriention横屏一次，竖屏两次，设置Android：configchange=oriention横屏一次，竖屏一次，设置Android：<br>configchange:oriention|keyboardhidden不执行生命周期</p>
+<p>21安卓系统架构<br>底层是linux层次<br>之后是c++运行层<br>之后是framework框架层<br>最后是application应用层</p>
+</meta-data>
       
 
       
@@ -267,18 +293,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/16/安卓四种启动模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/23/Android基础 -- Activity之间传递数据（bitmap和map对象）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安卓activity四种启动模式
+          安卓传递数据
         
       </div>
     </a>
   
   
-    <a href="/2016/12/23/Android基础 -- Activity之间传递数据（bitmap和map对象）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">安卓传递数据</div>
+    <a href="/2016/12/23/ZipUtil/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">压缩图片单例Util</div>
       <i class="icon-circle-right"></i>
     </a>
   
