@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://wonderfulxin.github.io/img/nginx11.png">
 <meta property="og:image" content="https://wonderfulxin.github.io/img/nginx9.png">
 <meta property="og:image" content="https://wonderfulxin.github.io/img/nginx10.png">
-<meta property="og:updated_time" content="2020-03-17T11:21:30.063Z">
+<meta property="og:updated_time" content="2020-03-17T12:00:43.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx可以做什么">
 <meta name="twitter:description" content="摘要:Nginx可以做什么？看完这篇你就懂了">
@@ -161,7 +161,7 @@
   
 
         <a href="/2020/03/17/Nginx可以做什么？看完这篇你就懂了/" class="archive-article-date">
-  	<time datetime="2020-03-17T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
+  	<time datetime="2020-03-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
 </a>
       </header>
     
@@ -202,7 +202,9 @@
 <p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法<br><img src="/img/nginx7.png" alt="avatar"></p>
 <p>以上5种负载均衡各自适用不同情况下使用，所以可以根据实际情况选择使用哪种策略模式,不过fair和url_hash需要安装第三方模块才能使用，由于本文主要介绍Nginx能做的事情，所以Nginx安装第三方模块不会再本文介绍</p>
 <h1 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h1><p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器，同时现在也很流行动静分离，就可以通过Nginx来实现，首先看看Nginx做静态资源服务器<br><img src="/img/nginx8.png" alt="avatar"></p>
-<p><img src="/img/nginx11.png" alt="avatar"><br>这样如果访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 就会默认访问到E盘wwwroot目录下面的index.html，如果一个网站只是静态页面的话，那么就可以通过这种方式来实现部署。<br>回去一查，发现我公司的不是配置root  而是配置alias  那这区别是什么呢？<br>网上一搜还真有<br>alias与root的用法区别<br>最基本的区别：alias指定的目录是准确的，root是指定目录的上级目录，并且该上级目录要含有location指定名称的同名目录。另外，根据前文所述，使用alias标签的目录块中不能使用rewrite的break</p>
+<p>这样如果访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 就会默认访问到E盘wwwroot目录下面的index.html，如果一个网站只是静态页面的话，那么就可以通过这种方式来实现部署。<br>回去一查，发现我公司的不是配置root  而是配置alias  那这区别是什么呢？ </p>
+<p><img src="/img/nginx11.png" alt="avatar"></p>
+<p>网上一搜还真有<br>alias与root的用法区别<br>最基本的区别：alias指定的目录是准确的，root是指定目录的上级目录，并且该上级目录要含有location指定名称的同名目录。另外，根据前文所述，使用alias标签的目录块中不能使用rewrite的break</p>
 <p>(1) . alias虚拟目录配置中，location匹配的path目录如果后面不带”/“，那么访问的url地址中这个path目录后面加不加”/“不影响访问，访问时它会自动加上”/“；<br>    但是如果location匹配的path目录后面加上”/“，那么访问的url地址中这个path目录必须要加上”/“，访问时它不会自动加上”/“。如果不加上”/“，访问就会失败！<br>(2) . root目录配置中，location匹配的path目录后面带不带”/“，都不会影响访问。</p>
 <p>所以，一般情况下，在nginx配置中的良好习惯是：<br>1）在location /中配置root目录；<br>2）在location /path中配置alias虚拟目录。</p>
 <h1 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h1><p>动静分离是让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作，这就是网站静态化处理的核心思路</p>
@@ -320,8 +322,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/03/17/github+hexo博客搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">github + hexo 博客搭建</div>
+    <a href="/2020/03/17/MQ机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MQ机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
