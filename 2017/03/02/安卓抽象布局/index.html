@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
   <title>安卓抽象布局--include、merge 、ViewStub | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍">
+<meta name="keywords" content="安卓">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓抽象布局--include、merge 、ViewStub">
 <meta property="og:url" content="https://wonderfulxin.github.io/2017/03/02/安卓抽象布局/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-03-02T07:40:57.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓抽象布局--include、merge 、ViewStub">
@@ -24,13 +26,13 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  <link rel="stylesheet" href="/main.css?v=4.0.0">
   
 
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -154,7 +156,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要:经常在做安卓的时候会用到这些东西，这些东西使得你加载的速度快了不止一倍<br><a id="more"></a><br>在布局优化中，Android官方提到了这三种布局 include、merge、ViewStub，并介绍了这三种布局各有的优势，下面也是简单说一下他们的优势，以及怎么使用，记下来权当做笔记。</p>
-<p>1、布局重用include 使用如下：<br>      LinearLayout<br>                xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a>“<br>            android:orientation=”vertical”<br>            android:layout_width=”match_parent”<br>            android:layout_height=”match_parent”<br>            android:background=”@color/app_bg”<br>            android:gravity=”center_horizontal”&gt;  </p>
+<p>1、布局重用include 使用如下：<br>      LinearLayout<br>                xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="noopener">http://schemas.android.com/apk/res/android</a>“<br>            android:orientation=”vertical”<br>            android:layout_width=”match_parent”<br>            android:layout_height=”match_parent”<br>            android:background=”@color/app_bg”<br>            android:gravity=”center_horizontal”&gt;  </p>
 <pre><code>    &lt;include layout=&quot;@layout/titlebar&quot;/&gt;  
 
     &lt;TextView android:layout_width=”match_parent”  
@@ -163,7 +165,7 @@
               android:padding=&quot;10dp&quot; /&gt;  
 LinearLayout 
 </code></pre><p>好处：我们写一个通用布局的时候可以用include重用，不至于写多遍，<br>比如布局一个APP的顶部布局、侧边栏布局、底部Tab栏布局、ListView和GridView每一项的布局将这些同一个APP中有多个界面用到的布局抽取出来再通过include标签引用，既可以降低layout的复杂度，又可以做到布局重用</p>
-<p>2、减少视图层级merge使用如下：<br>        merge<br>        xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;&gt;" target="_blank" rel="external">http://schemas.android.com/apk/res/android&quot;&gt;</a>  </p>
+<p>2、减少视图层级merge使用如下：<br>        merge<br>        xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;&gt;" target="_blank" rel="noopener">http://schemas.android.com/apk/res/android&quot;&gt;</a>  </p>
 <pre><code>    &lt;Button  
         android:layout_width=&quot;fill_parent&quot;   
         android:layout_height=&quot;wrap_content&quot;  
@@ -285,11 +287,11 @@ merge
   
 <nav id="article-nav">
   
-    <a href="/2017/07/13/发布的git代码/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/13/安卓listview嵌套gridview/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用git发布文件的时候需要注意的东西
+          安卓嵌套listview gridview
         
       </div>
     </a>
@@ -337,7 +339,7 @@ merge
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 xiexin
+    		&copy; 2020 xiexin
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -360,7 +362,7 @@ merge
 	}
 </script>
 
-<script src="/./main.js?v=4.0.0.js"></script>
+<script src="/./main.js?v=4.0.0"></script>
 
 
 

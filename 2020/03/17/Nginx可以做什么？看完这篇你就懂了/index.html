@@ -6,20 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>安卓activity四种启动模式 | wonderful的自由空间</title>
+  <title>Nginx可以做什么 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
-<meta name="keywords" content="安卓">
+  <meta name="description" content="摘要:Nginx可以做什么？看完这篇你就懂了">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓activity四种启动模式">
-<meta property="og:url" content="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/index.html">
+<meta property="og:title" content="Nginx可以做什么">
+<meta property="og:url" content="https://wonderfulxin.github.io/2020/03/17/Nginx可以做什么？看完这篇你就懂了/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta property="og:description" content="摘要:Nginx可以做什么？看完这篇你就懂了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-16T03:34:04.665Z">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx1.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx2.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx3.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx4.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx5.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx6.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx7.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx8.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx9.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/nginx10.png">
+<meta property="og:updated_time" content="2020-03-17T07:39:00.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓activity四种启动模式">
-<meta name="twitter:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta name="twitter:title" content="Nginx可以做什么">
+<meta name="twitter:description" content="摘要:Nginx可以做什么？看完这篇你就懂了">
+<meta name="twitter:image" content="https://wonderfulxin.github.io/img/nginx1.png">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -137,29 +148,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-安卓四种启动模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Nginx可以做什么？看完这篇你就懂了" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      安卓activity四种启动模式
+      Nginx可以做什么
     </h1>
   
 
-        <a href="/2017/01/16/安卓四种启动模式/" class="archive-article-date">
-  	<time datetime="2017-01-16T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
+        <a href="/2020/03/17/Nginx可以做什么？看完这篇你就懂了/" class="archive-article-date">
+  	<time datetime="2020-03-17T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:安卓activity的四种启动模式在面试中也是经常会用到的<br><a id="more"></a><br>1.standard 模式 标准模式，默认模式，每次激活都会重新创建activity，并且放到任务栈中<br>2.singletop模式 要是在栈顶是你要启用的activity 那就会重用这个activity 要是不是这个就重新启动activity<br>3.singletask模式 在栈里面查找要是有的话就复用 没有的话就重建<br>4.signleInstance模式 外部应用也可以启动你这个activity</p>
-<p>设置启动模式的位置在 AndroidManifest.xml 文件中 Activity 元素的 android:launchMode 属性。</p>
-<p>应用场景  singleTop适合接收通知启动的内容显示页面。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的。</p>
-<p>singleTask适合作为程序入口点。例如浏览器的主界面。不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走onNewIntent，并且会清空主界面上面的其他页面。</p>
-<p>singleInstance适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面，如果用于中间页面，跳转会有问题，比如：A -&gt; B (singleInstance) -&gt; C，完全退出后，在此启动，首先打开的是B。</p>
+        <p>摘要:Nginx可以做什么？看完这篇你就懂了<br><a id="more"></a></p>
+<p>本文只针对Nginx在不加载第三方模块的情况能处理哪些事情，由于第三方模块太多所以也介绍不完，当然本文本身也可能介绍的不完整，毕竟只是我个人使用过和了解到过得，欢迎留言交流。</p>
+<p>Nginx能做什么</p>
+<p>——反向代理</p>
+<p>——负载均衡</p>
+<p>——HTTP服务器（动静分离）</p>
+<p>——正向代理</p>
+<p>以上就是我了解到的Nginx在不依赖第三方模块能处理的事情，下面详细说明每种功能怎么做。</p>
+<p>反向代理</p>
+<p>反向代理应该是Nginx做的最多的一件事了，什么是反向代理呢，以下是百度百科的说法：反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。简单来说就是真实的服务器不能直接被外部网络访问，所以需要一台代理服务器，而代理服务器能被外部网络访问的同时又跟真实服务器在同一个网络环境，当然也可能是同一台服务器，端口不同而已。</p>
+<p>下面贴上一段简单的实现反向代理的代码</p>
+<p><img src="/img/nginx1.png" alt="avatar"></p>
+<p>保存配置文件后启动Nginx，这样当我们访问localhost的时候，就相当于访问localhost:8080了</p>
+<p>负载均衡</p>
+<p>负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
+<p>1、RR（默认）</p>
+<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
+<p>简单配置</p>
+<p><img src="/img/nginx2.png" alt="avatar"></p>
+<p>负载均衡的核心代码为</p>
+<p><img src="/img/nginx3.png" alt="avatar"></p>
+<p>这里我配置了2台服务器，当然实际上是一台，只是端口不一样而已，而8081的服务器是不存在的,也就是说访问不到，但是我们访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 的时候,也不会有问题，会默认跳转到<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 具体是因为Nginx会自动判断服务器的状态，如果服务器处于不能访问（服务器挂了），就不会跳转到这台服务器，所以也避免了一台服务器挂了影响使用的情况，由于Nginx默认是RR策略，所以我们不需要其他更多的设置。</p>
+<p>2、权重</p>
+<p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
+<p>例如</p>
+<p><img src="/img/nginx4.png" alt="avatar"></p>
+<p>那么10次一般只会有1次会访问到8081，而有9次会访问到8080</p>
+<p>3、ip_hash</p>
+<p>上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一个服务器，当我们的程序不是无状态的时候（采用了session保存数据），这时候就有一个很大的很问题了，比如把登录信息保存到了session中，那么跳转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器，那么就需要用iphash了，iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
+<p><img src="/img/nginx5.png" alt="avatar"></p>
+<p>4、fair（第三方）</p>
+<p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
+<p><img src="/img/nginx6.png" alt="avatar"></p>
+<p>5、url_hash（第三方）</p>
+<p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法<br><img src="/img/nginx7.png" alt="avatar"></p>
+<p>以上5种负载均衡各自适用不同情况下使用，所以可以根据实际情况选择使用哪种策略模式,不过fair和url_hash需要安装第三方模块才能使用，由于本文主要介绍Nginx能做的事情，所以Nginx安装第三方模块不会再本文介绍</p>
+<p>HTTP服务器</p>
+<p>Nginx本身也是一个静态资源的服务器，当只有静态资源的时候，就可以使用Nginx来做服务器，同时现在也很流行动静分离，就可以通过Nginx来实现，首先看看Nginx做静态资源服务器<br><img src="/img/nginx8.png" alt="avatar"></p>
+<p>这样如果访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 就会默认访问到E盘wwwroot目录下面的index.html，如果一个网站只是静态页面的话，那么就可以通过这种方式来实现部署。</p>
+<p>动静分离</p>
+<p>动静分离是让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作，这就是网站静态化处理的核心思路</p>
+<p>再补充一个可以上传git到github的图片<br><img src="/img/nginx9.png" alt="avatar"></p>
+<p>这样我们就可以吧HTML以及图片和css以及js放到wwwroot目录下，而tomcat只负责处理jsp和请求，例如当我们后缀为gif的时候，Nginx默认会从wwwroot获取到当前请求的动态图文件返回，当然这里的静态文件跟Nginx是同一台服务器，我们也可以在另外一台服务器，然后通过反向代理和负载均衡配置过去就好了，只要搞清楚了最基本的流程，很多配置就很简单了，另外localtion后面其实是一个正则表达式，所以非常灵活</p>
+<p>正向代理</p>
+<p>正向代理，意思是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端才能使用正向代理。当你需要把你的服务器作为代理服务器的时候，可以用Nginx来实现正向代理，但是目前Nginx有一个问题，那么就是不支持HTTPS，虽然我百度到过配置HTTPS的正向代理，但是到最后发现还是代理不了，当然可能是我配置的不对，所以也希望有知道正确方法的同志们留言说明一下。</p>
+<p> <img src="/img/nginx10.png" alt="avatar"><br>resolver是配置正向代理的DNS服务器，listen 是正向代理的端口，配置好了就可以在ie上面或者其他代理插件上面使用服务器ip+端口号进行代理了。</p>
+<p>出处 <a href="https://www.cnblogs.com/mq0036/p/9794540.html" target="_blank" rel="noopener">https://www.cnblogs.com/mq0036/p/9794540.html</a></p>
 
       
 
@@ -201,7 +254,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
       
@@ -254,7 +307,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2020/03/17/Nginx可以做什么？看完这篇你就懂了/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +321,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/安卓抽象布局/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          安卓抽象布局--include、merge 、ViewStub
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/16/观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">观察者模式</div>
+    <a href="/2019/01/23/使用git上传到coding/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用 Git上传代码到coding.net代码仓库详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -292,7 +336,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="安卓四种启动模式" data-title="安卓activity四种启动模式" data-url="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/"></div>
+	<div class="ds-thread" data-thread-key="Nginx可以做什么？看完这篇你就懂了" data-title="Nginx可以做什么" data-url="https://wonderfulxin.github.io/2020/03/17/Nginx可以做什么？看完这篇你就懂了/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

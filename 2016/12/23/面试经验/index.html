@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
   <title>面试经验 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="摘要:安卓面试经验">
+<meta name="keywords" content="其他">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试经验">
 <meta property="og:url" content="https://wonderfulxin.github.io/2016/12/23/面试经验/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="摘要:安卓面试经验">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-08-13T03:29:17.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试经验">
@@ -24,13 +26,13 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  <link rel="stylesheet" href="/main.css?v=4.0.0">
   
 
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -154,8 +156,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要:安卓面试经验<br><a id="more"></a><br>正文:我的第一篇<br>公司面临重组，项目重新搭建，薪资不到位，公司倒闭，都会使大家重新选择新的公司，楼主也准备重新寻找目标，希望自己能尽快找到新东家。<br>在这里写下安卓常见的面试题目：</p>
-<p>1，Linklist与Arraylist区别  hashmap 与hashset区别 arraylist与vector的区别<br>今天上午去笔试看到这题，自己也是蒙了戈壁啊，虽然楼主arraylist用的很多，但是却完全没有注意到这两个问题啊，在这里赶紧<br>代码一下，LinkList是一个链表的集合，Arraylist是一个数组的集合<br>hashmap存储的是键值对，实现了map接口，用put存储数据<br>HashSet存储的是对象，实现了set接口，用add添加数据<br>arraylist与vector都是底层基于数组实现的，vector中的元素超过它的初始大小生成多出一倍的数据，而arraylist则生成50%的空间，vector线程安全，arraylist线程非安全<br>2，windowmanager的知识<br>3，自定义view的知识<br>4，安卓view viewgroup事件分发<br>这个问题在面试的时候好常问到，但是基本上都回答不出来，这个问题要深究一下<br>view的分发机制<br>setOnClickListener与setOnTouchListener 按钮按下的时候会先执行ontouch 之后才 onclick 当ontouch返回为true时候会屏蔽掉onclick<br>只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法，属于view的dispatchtouchevent方法<br><a href="http://blog.csdn.net/guolin_blog/article/details/9097463/" target="_blank" rel="external">http://blog.csdn.net/guolin_blog/article/details/9097463/</a></p>
-<p>viewgroup的分发机制<br>ViewGroup就是一组View的集合，它包含很多的子View和子VewGroup，是android中所有布局的父类或间接父类像LinearLayout、RelativeLayout等都是继承自ViewGroup的。<br>只不过比起View，它多了可以包含子View和定义布局参数的功能。<br>Android中touch事件的传递，绝对是先传递到ViewGroup，再传递到View的<br>onInterceptTouchEvent<br>当你点击了某个控件，首先会去调用该控件所在布局的dispatchTouchEvent方法，<br>然后在布局的dispatchTouchEvent方法中找到被点击的相应控件，再去调用该控件的dispatchTouchEvent方法。<br>如果我们点击了MyLayout中的按钮，会先去调用MyLayout的dispatchTouchEvent方法，<br>可是你会发现MyLayout中并没有这个方法。那就再到它的父类LinearLayout中找一找，发现也没有这个方法。<br>那只好继续再找LinearLayout的父类ViewGroup，你终于在ViewGroup中看到了这个方法，<br>按钮的dispatchTouchEvent方法就是在这里调用的<br><a href="http://blog.csdn.net/guolin_blog/article/details/9153747" target="_blank" rel="external">http://blog.csdn.net/guolin_blog/article/details/9153747</a></p>
+<p>1，Linklist与Arraylist区别  hashmap 与hashset区别 arraylist与vector的区别<br>今天上午去笔试看到这题，自己也是蒙了戈壁啊，虽然楼主arraylist用的很多，但是却完全没有注意到这两个问题啊，在这里赶紧<br>代码一下，LinkList是一个链表的集合，Arraylist是一个数组的集合<br>hashmap存储的是键值对，实现了map接口，用put存储数据<br>HashSet存储的是对象，实现了set接口，用add添加数据<br>arraylist与vector都是底层基于数组实现的，vector中的元素超过它的初始大小生成多出一倍的数据，而arraylist则生成50%的空间，vector线程安全，arraylist线程非安全<br>2，windowmanager的知识<br>3，自定义view的知识<br>4，安卓view viewgroup事件分发<br>这个问题在面试的时候好常问到，但是基本上都回答不出来，这个问题要深究一下<br>view的分发机制<br>setOnClickListener与setOnTouchListener 按钮按下的时候会先执行ontouch 之后才 onclick 当ontouch返回为true时候会屏蔽掉onclick<br>只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法，属于view的dispatchtouchevent方法<br><a href="http://blog.csdn.net/guolin_blog/article/details/9097463/" target="_blank" rel="noopener">http://blog.csdn.net/guolin_blog/article/details/9097463/</a></p>
+<p>viewgroup的分发机制<br>ViewGroup就是一组View的集合，它包含很多的子View和子VewGroup，是android中所有布局的父类或间接父类像LinearLayout、RelativeLayout等都是继承自ViewGroup的。<br>只不过比起View，它多了可以包含子View和定义布局参数的功能。<br>Android中touch事件的传递，绝对是先传递到ViewGroup，再传递到View的<br>onInterceptTouchEvent<br>当你点击了某个控件，首先会去调用该控件所在布局的dispatchTouchEvent方法，<br>然后在布局的dispatchTouchEvent方法中找到被点击的相应控件，再去调用该控件的dispatchTouchEvent方法。<br>如果我们点击了MyLayout中的按钮，会先去调用MyLayout的dispatchTouchEvent方法，<br>可是你会发现MyLayout中并没有这个方法。那就再到它的父类LinearLayout中找一找，发现也没有这个方法。<br>那只好继续再找LinearLayout的父类ViewGroup，你终于在ViewGroup中看到了这个方法，<br>按钮的dispatchTouchEvent方法就是在这里调用的<br><a href="http://blog.csdn.net/guolin_blog/article/details/9153747" target="_blank" rel="noopener">http://blog.csdn.net/guolin_blog/article/details/9153747</a></p>
 <p>5，链表与数组的区别增删查改<br>链表的组成是地址指向  链表删除增加会好用一点<br>数组的组成是一块地址分配给它 数组查找会好一点  数组删除下标下移就行了</p>
 <p>6，安卓有序广播，无序广播<br>大家都知道广播的注册方式有两种，动态注册和静态注册，静态注册就是文件清单注册，就是退出应用都是可以收到广播的，例如别人打电话来的广播，这个时候我要关闭音乐后台播放<br>动态注册跟随activity的生命周期，只要activity关闭 则广播也就自动关闭。今天问到一个有序广播无序广播，我也是蒙了戈壁啊，然后回来查了一下<br>有序广播是通过Context.sendOrderedBroadcast来发送，可以通过在intent-filter中设置android:priority属性来设置receiver的优先级。优先级相同的receiver其执行顺序不确定。<br>有序广播，即从优先级别最高的广播接收器开始接收，接收完了如果没有丢弃，就下传给下一个次高优先级别的广播接收器进行处理，依次类推，直到最后。<br>这里接收短信的广播是有序广播，因此可以设置你自己的广播接收器的级别高于系统原来的级别，就可以拦截短信，并且不存收件箱，也不会有来信提示音。</p>
 <receiver android:name=".SmsReceiver"><br>   <intent-filter android:priority="100"><br>    <action android:name="android.provider.Telephony.SMS_RECEIVED"><br>   </action></intent-filter><br></receiver>
@@ -176,7 +178,7 @@
 <p>18，安卓多渠道打包<br>Android studio中<br>（一）在AndroidManifest.xml里设置动态渠道变量</p>
 <meta-data android:name="UMENG_CHANNEL" android:value="${UMENG_CHANNEL_VALUE}">
 
-<p>（二）在build.gradle设置productFlavors<br>（三）执行打包操作<br><a href="http://blog.csdn.net/mynameishuangshuai/article/details/51783303" target="_blank" rel="external">http://blog.csdn.net/mynameishuangshuai/article/details/51783303</a></p>
+<p>（二）在build.gradle设置productFlavors<br>（三）执行打包操作<br><a href="http://blog.csdn.net/mynameishuangshuai/article/details/51783303" target="_blank" rel="noopener">http://blog.csdn.net/mynameishuangshuai/article/details/51783303</a></p>
 <p>19，view与surfaceview的区别<br>SurfaceView和View最本质的区别在于，surfaceView是在一个新起的单独线程中可以重新绘制画面而View必须在UI的主线程中更新画面，渲染速度surfaceview比view快</p>
 <p>20，屏幕旋转调用的生命周期<br>不设置activity的android:onconfigchang=oriention横屏一次，竖屏两次，设置Android：configchange=oriention横屏一次，竖屏一次，设置Android：<br>configchange:oriention|keyboardhidden不执行生命周期</p>
 <p>21安卓系统架构<br>底层是linux层次<br>之后是c++运行层<br>之后是framework框架层<br>最后是application应用层</p>
@@ -303,8 +305,8 @@
     </a>
   
   
-    <a href="/2016/12/23/ZipUtil/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">压缩图片单例Util</div>
+    <a href="/2016/12/23/Android6.0没有权限读取外部存储的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 权限管理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -345,7 +347,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 xiexin
+    		&copy; 2020 xiexin
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -368,7 +370,7 @@
 	}
 </script>
 
-<script src="/./main.js?v=4.0.0.js"></script>
+<script src="/./main.js?v=4.0.0"></script>
 
 
 

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>安卓activity四种启动模式 | wonderful的自由空间</title>
+  <title>markdown语法 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
-<meta name="keywords" content="安卓">
+  <meta name="description" content="摘要:markdown语法 正文:我的第一篇  斜体和粗体 斜体或斜体 粗体 加粗斜体 删除线   分级标题 一级标题  最大 二级标题 三级标题 四级标题 五级标题 六级标题   &amp;lt; 与 &amp;amp; 1.&amp;lt;会不显示，要写&amp;amp;lt 2.&amp;amp;要写&amp;amp;amp   如果你确实想要依赖 Markdown 来插入  标签的话，在插入处先按入两个以上的空格然后回车。 今天又学到一">
+<meta name="keywords" content="其他">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓activity四种启动模式">
-<meta property="og:url" content="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/index.html">
+<meta property="og:title" content="markdown语法">
+<meta property="og:url" content="https://wonderfulxin.github.io/2019/01/23/markdown语法/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta property="og:description" content="摘要:markdown语法 正文:我的第一篇  斜体和粗体 斜体或斜体 粗体 加粗斜体 删除线   分级标题 一级标题  最大 二级标题 三级标题 四级标题 五级标题 六级标题   &amp;lt; 与 &amp;amp; 1.&amp;lt;会不显示，要写&amp;amp;lt 2.&amp;amp;要写&amp;amp;amp   如果你确实想要依赖 Markdown 来插入  标签的话，在插入处先按入两个以上的空格然后回车。 今天又学到一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-16T03:34:04.665Z">
+<meta property="og:updated_time" content="2017-07-13T04:44:33.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓activity四种启动模式">
-<meta name="twitter:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta name="twitter:title" content="markdown语法">
+<meta name="twitter:description" content="摘要:markdown语法 正文:我的第一篇  斜体和粗体 斜体或斜体 粗体 加粗斜体 删除线   分级标题 一级标题  最大 二级标题 三级标题 四级标题 五级标题 六级标题   &amp;lt; 与 &amp;amp; 1.&amp;lt;会不显示，要写&amp;amp;lt 2.&amp;amp;要写&amp;amp;amp   如果你确实想要依赖 Markdown 来插入  标签的话，在插入处先按入两个以上的空格然后回车。 今天又学到一">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -137,29 +137,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-安卓四种启动模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-markdown语法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      安卓activity四种启动模式
+      markdown语法
     </h1>
   
 
-        <a href="/2017/01/16/安卓四种启动模式/" class="archive-article-date">
-  	<time datetime="2017-01-16T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
+        <a href="/2019/01/23/markdown语法/" class="archive-article-date">
+  	<time datetime="2019-01-23T07:19:20.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:安卓activity的四种启动模式在面试中也是经常会用到的<br><a id="more"></a><br>1.standard 模式 标准模式，默认模式，每次激活都会重新创建activity，并且放到任务栈中<br>2.singletop模式 要是在栈顶是你要启用的activity 那就会重用这个activity 要是不是这个就重新启动activity<br>3.singletask模式 在栈里面查找要是有的话就复用 没有的话就重建<br>4.signleInstance模式 外部应用也可以启动你这个activity</p>
-<p>设置启动模式的位置在 AndroidManifest.xml 文件中 Activity 元素的 android:launchMode 属性。</p>
-<p>应用场景  singleTop适合接收通知启动的内容显示页面。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的。</p>
-<p>singleTask适合作为程序入口点。例如浏览器的主界面。不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走onNewIntent，并且会清空主界面上面的其他页面。</p>
-<p>singleInstance适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面，如果用于中间页面，跳转会有问题，比如：A -&gt; B (singleInstance) -&gt; C，完全退出后，在此启动，首先打开的是B。</p>
+        <p>摘要:markdown语法</p>
+<p>正文:我的第一篇</p>
+<ol>
+<li>斜体和粗体<ol>
+<li><em>斜体</em>或<em>斜体</em></li>
+<li><strong>粗体</strong></li>
+<li><strong><em>加粗斜体</em></strong></li>
+<li><del>删除线</del></li>
+</ol>
+</li>
+<li>分级标题<ol>
+<li><h1 id="一级标题-最大"><a href="#一级标题-最大" class="headerlink" title="一级标题  最大"></a>一级标题  最大</h1></li>
+<li><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></li>
+<li><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3></li>
+<li><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4></li>
+<li><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></li>
+<li><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></li>
+</ol>
+</li>
+<li>&lt; 与 &amp;<br> 1.&lt;会不显示，要写&amp;lt<br> 2.&amp;要写&amp;amp  </li>
+<li>如果你确实想要依赖 Markdown 来插入 <br> 标签的话，在插入处先按入两个以上的空格然后回车。</li>
+<li><p>今天又学到一招 Markdown 插入图片的话 ! <a href="/ img/ 20161110153244326.png"> avatar </a> 在source文件夹下面加多一个img文件夹<br>  然后用 hexo g  //提交<br>  hexo d //上传</p>
+<p>  <em>干的漂亮</em></p>
+</li>
+</ol>
 
       
 
@@ -201,7 +221,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
 	</div>
 
       
@@ -254,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2019/01/23/markdown语法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +288,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/安卓抽象布局/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/23/使用git上传到coding/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安卓抽象布局--include、merge 、ViewStub
+          使用 Git上传代码到coding.net代码仓库详解
         
       </div>
     </a>
   
   
-    <a href="/2017/01/16/观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">观察者模式</div>
+    <a href="/2017/07/13/发布的git代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用git发布文件的时候需要注意的东西</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -292,7 +312,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="安卓四种启动模式" data-title="安卓activity四种启动模式" data-url="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/"></div>
+	<div class="ds-thread" data-thread-key="markdown语法" data-title="markdown语法" data-url="https://wonderfulxin.github.io/2019/01/23/markdown语法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

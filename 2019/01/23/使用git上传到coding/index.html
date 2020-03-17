@@ -6,20 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
-  <title>安卓activity四种启动模式 | wonderful的自由空间</title>
+  <title>使用 Git上传代码到coding.net代码仓库详解 | wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
-<meta name="keywords" content="安卓">
+  <meta name="description" content="摘要:使用 Git上传代码到coding.net代码仓库详解">
+<meta name="keywords" content="其他">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓activity四种启动模式">
-<meta property="og:url" content="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/index.html">
+<meta property="og:title" content="使用 Git上传代码到coding.net代码仓库详解">
+<meta property="og:url" content="https://wonderfulxin.github.io/2019/01/23/使用git上传到coding/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
-<meta property="og:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta property="og:description" content="摘要:使用 Git上传代码到coding.net代码仓库详解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-16T03:34:04.665Z">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110143539889.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110143829127.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110144142460.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110144711307.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110145017808.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110145224254.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110145428374.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/20161110153244326.png">
+<meta property="og:image" content="https://wonderfulxin.github.io/img/gitshiyong.png">
+<meta property="og:updated_time" content="2017-09-05T10:18:39.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓activity四种启动模式">
-<meta name="twitter:description" content="摘要:安卓activity的四种启动模式在面试中也是经常会用到的">
+<meta name="twitter:title" content="使用 Git上传代码到coding.net代码仓库详解">
+<meta name="twitter:description" content="摘要:使用 Git上传代码到coding.net代码仓库详解">
+<meta name="twitter:image" content="https://wonderfulxin.github.io/img/20161110143539889.png">
   
     <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
   
@@ -137,29 +147,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-安卓四种启动模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用git上传到coding" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      安卓activity四种启动模式
+      使用 Git上传代码到coding.net代码仓库详解
     </h1>
   
 
-        <a href="/2017/01/16/安卓四种启动模式/" class="archive-article-date">
-  	<time datetime="2017-01-16T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
+        <a href="/2019/01/23/使用git上传到coding/" class="archive-article-date">
+  	<time datetime="2019-01-23T07:19:20.852Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要:安卓activity的四种启动模式在面试中也是经常会用到的<br><a id="more"></a><br>1.standard 模式 标准模式，默认模式，每次激活都会重新创建activity，并且放到任务栈中<br>2.singletop模式 要是在栈顶是你要启用的activity 那就会重用这个activity 要是不是这个就重新启动activity<br>3.singletask模式 在栈里面查找要是有的话就复用 没有的话就重建<br>4.signleInstance模式 外部应用也可以启动你这个activity</p>
-<p>设置启动模式的位置在 AndroidManifest.xml 文件中 Activity 元素的 android:launchMode 属性。</p>
-<p>应用场景  singleTop适合接收通知启动的内容显示页面。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的。</p>
-<p>singleTask适合作为程序入口点。例如浏览器的主界面。不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走onNewIntent，并且会清空主界面上面的其他页面。</p>
-<p>singleInstance适合需要与程序分离开的页面。例如闹铃提醒，将闹铃提醒与闹铃设置分离。singleInstance不要用于中间页面，如果用于中间页面，跳转会有问题，比如：A -&gt; B (singleInstance) -&gt; C，完全退出后，在此启动，首先打开的是B。</p>
+        <p>摘要:使用 Git上传代码到coding.net代码仓库详解<br><a id="more"></a></p>
+<p>1.创建本地代码库</p>
+<p>在本地创建一个文件夹，作为你上传代码的本地仓库，接下来就要把这个仓库与coding服务器端进行配置</p>
+<p>在这个文件夹内点击右键，选择Git Bash Here，首先要初始化本地仓库，输入”git init”命令</p>
+<p><img src="/img/20161110143539889.png" alt="avatar"></p>
+<p>接下来进行远程代码库克隆（前提：自行在coding中建立一个项目，空项目即可），输入”git clone https：//xxxxxx”命令，命令中的url获取方式如图：<br><img src="/img/20161110143829127.png" alt="avatar"></p>
+<p>左下角HHTPS处即为要输入的url</p>
+<p>将这个url粘贴到命令中，进行远程仓库的克隆，克隆时会出现输入账号密码的环节（coding注册时的账号和密码）<br><img src="/img/20161110144142460.png" alt="avatar"></p>
+<p>输入账号密码之后便可以完成克隆。</p>
+<p>2.代码推送</p>
+<p>克隆之后在原来的文件夹中会多出一个文件夹（即从代码库中下载的文件夹），例如<br><img src="/img/20161110144711307.png" alt="avatar"></p>
+<p>这时候，本地仓库的配置就完成了，将要上传的代码文件放入这个文件夹中，接下来要查看一下本地仓库的状态，一检查配置是否成功，进而进行代码的推送，输入命令”git status”</p>
+<p>例如放入了一个“stringKMP.c”文件之后输入命令”git status”</p>
+<p><img src="/img/20161110145017808.png" alt="avatar"></p>
+<p>输入git status命令后，会发现以红色字体打印出来的“stringKMP.c”，说明该文件存在于本地仓库，但并未推送到云端， 接下来，输入”git add 文件名”命令，可以再输入命令”git status”进行状态检查，如下<br><img src="/img/20161110145224254.png" alt="avatar"></p>
+<p>会发现出现了“new file”。</p>
+<p>接下来， 输入”git commit -m “代码备注随便写” “命令提交</p>
+<p>然后输入”git push origin master”命令推送到云端，origin是服务器，master是分枝。<br><img src="/img/20161110145428374.png" alt="avatar"></p>
+<p>一切结束后，输入”git status”查看本地代码状态，会用绿字显示，表示上传成功，进入coding.Net的项目主页，你会发现自己在本地推送的代码已经出现在项目中。<br><img src="/img/20161110153244326.png" alt="avatar"></p>
+<p>以上就是使用Git上传代码到coding的流程，希望对大家有所帮助。</p>
+<p>再补充一个可以上传git到github的图片<br><img src="/img/gitshiyong.png" alt="avatar"></p>
 
       
 
@@ -201,7 +227,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
 	</div>
 
       
@@ -254,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wonderfulxin.github.io/2019/01/23/使用git上传到coding/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +294,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/安卓抽象布局/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/17/Nginx可以做什么？看完这篇你就懂了/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          安卓抽象布局--include、merge 、ViewStub
+          Nginx可以做什么
         
       </div>
     </a>
   
   
-    <a href="/2017/01/16/观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">观察者模式</div>
+    <a href="/2019/01/23/markdown语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -292,7 +318,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="安卓四种启动模式" data-title="安卓activity四种启动模式" data-url="https://wonderfulxin.github.io/2017/01/16/安卓四种启动模式/"></div>
+	<div class="ds-thread" data-thread-key="使用git上传到coding" data-title="使用 Git上传代码到coding.net代码仓库详解" data-url="https://wonderfulxin.github.io/2019/01/23/使用git上传到coding/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
