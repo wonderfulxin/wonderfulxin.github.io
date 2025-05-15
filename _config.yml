@@ -67,14 +67,14 @@ theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-##deploy:
-##  type: git
-##  repository: git@github.com:wonderfulxin/wonderfulxin.github.io.git
-##  branch: master
-  
-deploy: 
+deploy:
   type: git
-  repository: git@gitee.com:xiexin/xiexin.git
+  repository: git@github.com:wonderfulxin/wonderfulxin.github.io.git
   branch: master
+  
+#eploy: 
+# type: git
+# repository: git@gitee.com:xiexin/xiexin.git
+# branch: master
 
   
