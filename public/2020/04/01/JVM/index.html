@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="https://xiexin.gitee.io">
+  <title>JVM | wonderful的自由空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要:java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM">
+<meta property="og:url" content="https://xiexin.gitee.io/2020/04/01/JVM/index.html">
+<meta property="og:site_name" content="wonderful的自由空间">
+<meta property="og:description" content="摘要:java">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiexin.gitee.io/img/jvm.jpg">
+<meta property="article:published_time" content="2020-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-24T03:50:52.107Z">
+<meta property="article:author" content="xiexin">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiexin.gitee.io/img/jvm.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/main.css?v=4.0.0.css">
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/avatar.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+            
+    			
+            
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/wonderfulxin" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weixin" target="_blank" href="/13128257037" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:929992037@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wonderfulxin" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weixin" target="_blank" href="/13128257037" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:929992037@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-JVM" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JVM
+    </h1>
+  
+
+        <a href="/2020/04/01/JVM/" class="archive-article-date">
+  	<time datetime="2020-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要:java</p>
+<span id="more"></span>
+<h1 id="一图看懂JVM"><a href="#一图看懂JVM" class="headerlink" title="一图看懂JVM"></a>一图看懂JVM</h1><p><img src="/img/jvm.jpg" alt="avatar"></p>
+<h1 id="类加载器-运行时数据区-执行引擎"><a href="#类加载器-运行时数据区-执行引擎" class="headerlink" title="类加载器 运行时数据区 执行引擎"></a>类加载器 运行时数据区 执行引擎</h1><h1 id="JVM-如何判断一个对象要回收了"><a href="#JVM-如何判断一个对象要回收了" class="headerlink" title="JVM  如何判断一个对象要回收了"></a>JVM  如何判断一个对象要回收了</h1><h2 id="引用计数：jvm对象有一个计数器，每次有人引用它的时候计数器加一，如果取消引用的话计数器减一，JVM判断如果引用计数为0的时候就回收"><a href="#引用计数：jvm对象有一个计数器，每次有人引用它的时候计数器加一，如果取消引用的话计数器减一，JVM判断如果引用计数为0的时候就回收" class="headerlink" title="引用计数：jvm对象有一个计数器，每次有人引用它的时候计数器加一，如果取消引用的话计数器减一，JVM判断如果引用计数为0的时候就回收"></a>引用计数：jvm对象有一个计数器，每次有人引用它的时候计数器加一，如果取消引用的话计数器减一，JVM判断如果引用计数为0的时候就回收</h2><h2 id="可达性分析：jvm会从GC-Roots开始向下搜索，搜索所走过的路劲叫引用链，当一个对象到GC-ROOTS没有任何引用链的时候，证明对象不可用了，为不可达对象，这个时候会被垃圾回收器回收"><a href="#可达性分析：jvm会从GC-Roots开始向下搜索，搜索所走过的路劲叫引用链，当一个对象到GC-ROOTS没有任何引用链的时候，证明对象不可用了，为不可达对象，这个时候会被垃圾回收器回收" class="headerlink" title="可达性分析：jvm会从GC Roots开始向下搜索，搜索所走过的路劲叫引用链，当一个对象到GC ROOTS没有任何引用链的时候，证明对象不可用了，为不可达对象，这个时候会被垃圾回收器回收"></a>可达性分析：jvm会从GC Roots开始向下搜索，搜索所走过的路劲叫引用链，当一个对象到GC ROOTS没有任何引用链的时候，证明对象不可用了，为不可达对象，这个时候会被垃圾回收器回收</h2><p>#引用的分类  </p>
+<h2 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h2><p>jvm 不会回收这个对象，就算到OOM 也不回收</p>
+<h2 id="软引用"><a href="#软引用" class="headerlink" title="软引用"></a>软引用</h2><p>jvm 只要内存不够的时候就会回收这个引用，一般不回收这个对象</p>
+<h2 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h2><p>jvm 发现之后就会回收这个对象，但是垃圾回收期是一个优先级很低的线程，所以不一定很快就会发现这些弱引用的对象</p>
+<h2 id="虚引用"><a href="#虚引用" class="headerlink" title="虚引用"></a>虚引用</h2><p>jvm 看到就会回收，虚引用顾名思义，就是形同虚设。与其他几种引用都不同，虚引用并不会决定对象的生命周期。<br>如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。</p>
+<p>#垃圾回收(GC)及垃圾回收器  GC 收集器<br>垃圾回收机老年代包括：CMS  G1<br>年轻代回收器：ParNew</p>
+<h1 id="JVM-调优"><a href="#JVM-调优" class="headerlink" title="JVM 调优"></a>JVM 调优</h1><p>jps jmc 阿里arthas</p>
+<h1 id="JVM-调优指令"><a href="#JVM-调优指令" class="headerlink" title="JVM 调优指令"></a>JVM 调优指令</h1><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>1.jps命令用于查询正在运行的JVM进程。<br>2.jstat可以实时显示本地或者远程JVM进程中类的装载、内存、垃圾收集、JIT编译等数据。<br>3.jinfo用于查询当前运行的JVM的属性和参数值。<br>4.jmap用于显示当前Java堆和永久代的详细信息。<br>5.jhat用于分析使用jmap生成的dump文件，是JDK自带的工具。<br>6.jstack用于生成当前JVM所有线程的快照，线程快照是JVM每一个线程正在执行的方法，目的是定位出线程出现长时间停顿的原因。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>1.-Xmx：用于指定Java程序的最大堆内存，使用java -Xmx5000M -version判断当前系统能分配的最大堆内存。<br>2.-Xms：指定最小堆内存，通常设置成跟最大堆内存一样，减少GC。<br>3.-Xmn：设置新生代大小。整个堆内存 = 新生代内存 + 老年代内存，此值对系统性能影响较大，Sun官方推荐设置为堆的3/8。<br>4.-Xss：指定线程的最大栈空间。该参数决定了java函数调用的深度，值越大调用深度越深，若值太小，容易发生栈溢出错误。<br>5.-XX:PermSize ：指定方法区（永久区）的初始值，默认是物理内存的1/64，Java8永久区移除之后，取而代之的是元数据区，由-XX:MetaspaceSize指定。<br>6.-XX:MaxPermSize ：指定方法区（永久区）的最大值，默认是物理内存的1/4，Java8永久区移除之后，取而代之的是元数据区，由-XX:MaxMetaspaceSize指定。<br>7.-XX:NewRatio=n：老年代和新生代比值，n=2时，说明老年代和新生代的比值为2:1。<br>8.-XX:SurvivorRatio=n：Eden区和Survivor区的比值。n=8时，说明Eden和Survivor比值为8：1：1，因为Survivor有两个（from，to）</p>
+<h1 id="JVM-里面有什么"><a href="#JVM-里面有什么" class="headerlink" title="JVM 里面有什么"></a>JVM 里面有什么</h1><h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>放对象，new关键字和构造器创建的对象</p>
+<h3 id="堆–新生代-比例1-主要用的是复制算法-伊甸园区主要用标记清除，suviver区主要用复制算法"><a href="#堆–新生代-比例1-主要用的是复制算法-伊甸园区主要用标记清除，suviver区主要用复制算法" class="headerlink" title="堆–新生代 比例1  主要用的是复制算法  伊甸园区主要用标记清除，suviver区主要用复制算法"></a>堆–新生代 比例1  主要用的是复制算法  伊甸园区主要用标记清除，suviver区主要用复制算法</h3><p>新生代有伊甸园区和 suviver区-比例8:1:1  ——主要对应的是minor GC  就是把已经没有GC root引用的数据给清除掉</p>
+<h3 id="堆–老年代-比例2-主要用的是标记-整理算法"><a href="#堆–老年代-比例2-主要用的是标记-整理算法" class="headerlink" title="堆–老年代 比例2  主要用的是标记-整理算法"></a>堆–老年代 比例2  主要用的是标记-整理算法</h3><p>对应的是老年代  主要是FULL GC —– 对应着会 STW stop the word 导致全世界停顿  如果进行full GC 之后，内存还是不够的时候，就会抛出异常OOM</p>
+<h3 id="JVM-调优主要是为了少点FULL-GC-和加快FULL-GC-的速度"><a href="#JVM-调优主要是为了少点FULL-GC-和加快FULL-GC-的速度" class="headerlink" title="JVM 调优主要是为了少点FULL GC 和加快FULL GC 的速度"></a>JVM 调优主要是为了少点FULL GC 和加快FULL GC 的速度</h3><h3 id="为什么15次之后就到老年代"><a href="#为什么15次之后就到老年代" class="headerlink" title="为什么15次之后就到老年代"></a>为什么15次之后就到老年代</h3><p>因为对象头里面有四个bit 代表的是GC的年龄 0000，每次young GC  就加一 主要是复制算法，这里到达1111 则是15次如果再加就没有位数了<br>所以就是因为这样 15次GC之后就放到老年代</p>
+<h3 id="还有一个问题，什么时候对象进入老年代？"><a href="#还有一个问题，什么时候对象进入老年代？" class="headerlink" title="还有一个问题，什么时候对象进入老年代？"></a>还有一个问题，什么时候对象进入老年代？</h3><p>1、对象的分代年龄到了15岁<br>2、大对象直接进入老年代，就是大对象在新生代放不下，进行minor GC之后还是不够的情况下，会直接放入老年代。</p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>放一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存</p>
+<h3 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h3><h3 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a>操作数栈</h3><h3 id="方法出口"><a href="#方法出口" class="headerlink" title="方法出口"></a>方法出口</h3><h2 id="方法区-jdk-1-6-之后-叫元空间"><a href="#方法区-jdk-1-6-之后-叫元空间" class="headerlink" title="方法区 jdk 1.6 之后 叫元空间"></a>方法区 jdk 1.6 之后 叫元空间</h2><p>主要存放常量 静态方法等</p>
+<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>保存当前栈到达哪行运算位置了</p>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p>调用一些native方法，C++的方法都是通过本地方法栈调用的  unsafe类里面的cas</p>
+<h1 id="栈内存溢出会报StackOverflowError-堆溢出会报OOM"><a href="#栈内存溢出会报StackOverflowError-堆溢出会报OOM" class="headerlink" title="栈内存溢出会报StackOverflowError  堆溢出会报OOM"></a>栈内存溢出会报StackOverflowError  堆溢出会报OOM</h1><h1 id="JVM-和-HotSpot什么区别"><a href="#JVM-和-HotSpot什么区别" class="headerlink" title="JVM 和 HotSpot什么区别"></a>JVM 和 HotSpot什么区别</h1><p>JVM 一个规范 一个标准 </p>
+<p>HotSpot 是一个产品  一个实现  sun 公司开发的 亲儿子  所以一般用的 就是这个<br>J9 是一个产品  一个实现<br>taobaovm 是一个产品  一个实现</p>
+<p>openJDK— 一个C++项目  编译出来就是 HotSpot   openJDK就是开源的HotSpot代码  HotSpot有20%是商业用的代码  openJDK没有</p>
+<h1 id="遇到过OOM吗-怎么造成的，怎么处理的"><a href="#遇到过OOM吗-怎么造成的，怎么处理的" class="headerlink" title="遇到过OOM吗  怎么造成的，怎么处理的"></a>遇到过OOM吗  怎么造成的，怎么处理的</h1><p>内存不够的时候  static等关键字用的多了 由于老年代不够用了 怎么old GC 都没用了 这个时候就会OOM</p>
+<p>1，使用软引用<br>2，尽量少用static<br>3，加内存条</p>
+<h1 id="对象是放在哪里的"><a href="#对象是放在哪里的" class="headerlink" title="对象是放在哪里的"></a>对象是放在哪里的</h1><p>对象实例是放在堆里面，对象引用是放在栈里面，对象静态方法是放在元空间</p>
+<h1 id="主要内存回收算法"><a href="#主要内存回收算法" class="headerlink" title="主要内存回收算法"></a>主要内存回收算法</h1><h2 id="复制-主要用于suviver区"><a href="#复制-主要用于suviver区" class="headerlink" title="复制 主要用于suviver区"></a>复制 主要用于suviver区</h2><h2 id="标记清理-主要用于young-区"><a href="#标记清理-主要用于young-区" class="headerlink" title="标记清理 主要用于young 区"></a>标记清理 主要用于young 区</h2><h2 id="标记整理-主要用于old区"><a href="#标记整理-主要用于old区" class="headerlink" title="标记整理 主要用于old区"></a>标记整理 主要用于old区</h2><h1 id="大对象多大就会直接到老年代"><a href="#大对象多大就会直接到老年代" class="headerlink" title="大对象多大就会直接到老年代"></a>大对象多大就会直接到老年代</h1><p>大于伊甸园区的50%  就直接到老年代</p>
+<h1 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h1><p>CMS 垃圾回收算法，是标记清理算法 用于old 区<br>CMS并非没有暂停，而是用两次短暂停来替代串行标记整理算法的长暂停，它的收集周期是这样：<br>初始标记(CMS-initial-mark) -&gt; 并发标记(CMS-concurrent-mark) -&gt; 重新标记(CMS-remark) -&gt; 并发清除(CMS-concurrent-sweep)<br>-&gt;并发重设状态等待下次CMS的触发(CMS-concurrent-reset)。其中的1，3两个步骤需要暂停所有的应用程序线程的。<br>第一次暂停从root对象开始标记存活的对象，这个阶段称为初始标记；第二次暂停是在并发标记之后， 暂停所有应用程序线程，<br>重新标记并发标记阶段遗漏的对象（在并发标记阶段结束后对象状态的更新导致）。<br>第一次暂停会比较短，第二次暂停通常会比较长，并且 remark这个阶段可以并行标记。</p>
+<h1 id="G1"><a href="#G1" class="headerlink" title="G1"></a>G1</h1><p>G1 标记整理算法 </p>
+<h1 id="垃圾回收器从线程运行情况分类有三种"><a href="#垃圾回收器从线程运行情况分类有三种" class="headerlink" title="垃圾回收器从线程运行情况分类有三种"></a>垃圾回收器从线程运行情况分类有三种</h1><p>串行回收，Serial回收器，单线程回收，全程stw；<br>并行回收，名称以Parallel开头的回收器，多线程回收，全程stw；<br>并发回收，cms与G1，多线程分阶段回收，只有某阶段会stw；</p>
+<h1 id="CMS-处理过程有七个步骤："><a href="#CMS-处理过程有七个步骤：" class="headerlink" title="CMS 处理过程有七个步骤："></a>CMS 处理过程有七个步骤：</h1><ol>
+<li>初始标记(CMS-initial-mark) ,会导致swt；</li>
+<li>并发标记(CMS-concurrent-mark)，与用户线程同时运行； </li>
+<li>预清理（CMS-concurrent-preclean），与用户线程同时运行； </li>
+<li>可被终止的预清理（CMS-concurrent-abortable-preclean） 与用户线程同时运行； </li>
+<li>重新标记(CMS-remark) ，会导致swt； </li>
+<li>并发清除(CMS-concurrent-sweep)，与用户线程同时运行； </li>
+<li>并发重置状态等待下次CMS的触发(CMS-concurrent-reset)，与用户线程同时运行； </li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li></ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://xiexin.gitee.io/2020/04/01/JVM/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/22/%E9%94%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          锁机制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/01/dubbo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">dubbo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JVM" data-title="JVM" data-url="https://xiexin.gitee.io/2020/04/01/JVM/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wonderfulxin"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2025 xiexin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: false
+	}
+</script>
+
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">JAVA资深程序猿</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

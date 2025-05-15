@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="https://xiexin.gitee.io">
+  <title>mysql机制 | wonderful的自由空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要:mysql机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql机制">
+<meta property="og:url" content="https://xiexin.gitee.io/2020/03/21/mysql%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="wonderful的自由空间">
+<meta property="og:description" content="摘要:mysql机制">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-02T06:17:56.031Z">
+<meta property="article:author" content="xiexin">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/main.css?v=4.0.0.css">
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/avatar.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+            
+    			
+            
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/wonderfulxin" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weixin" target="_blank" href="/13128257037" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:929992037@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wonderfulxin" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weixin" target="_blank" href="/13128257037" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:929992037@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-mysql机制" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql机制
+    </h1>
+  
+
+        <a href="/2020/03/21/mysql%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2020-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要:mysql机制</p>
+<span id="more"></span>
+<h1 id="mysql-优化"><a href="#mysql-优化" class="headerlink" title="mysql 优化"></a>mysql 优化</h1><p>1，要分析mysql，explain，执行看是否有使用索引<br>2，不要用like，!=，等等，like %这个走在前面不走索引<br>3，尽量不要在where里面做表达式操作，判空操作，会导致不走索引</p>
+<h1 id="事务须知"><a href="#事务须知" class="headerlink" title="事务须知"></a>事务须知</h1><h2 id="事务实现"><a href="#事务实现" class="headerlink" title="事务实现"></a>事务实现</h2><p>start transaction;</p>
+<p>commit;</p>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><h3 id="代码方式"><a href="#代码方式" class="headerlink" title="代码方式"></a>代码方式</h3><p>dbc = new DataBaseConnection();<br>Connection con = dbc.getConnection();<br>try {<br>    dbc.executeUpdate(“delete from xiao_affix where bylawid=” + sID);<br>    con.commit();//提交JDBC事务<br>    con.setAutoCommit(true);// 恢复JDBC事务的默认提交方式<br>    dbc.close();<br>}catch (Exception exc) {<br>　　 con.rollBack();//回滚JDBC事务<br>　　 exc.printStackTrace();<br>　　 dbc.close();<br>　　 return -1;<br>} </p>
+<h3 id="基于-Transactional-的声明式事务管理"><a href="#基于-Transactional-的声明式事务管理" class="headerlink" title="基于 @Transactional 的声明式事务管理"></a>基于 @Transactional 的声明式事务管理</h3><p>@Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.REQUIRED)</p>
+<h2 id="有没有用过事务-事务用于什么地方"><a href="#有没有用过事务-事务用于什么地方" class="headerlink" title="有没有用过事务 事务用于什么地方"></a>有没有用过事务 事务用于什么地方</h2><p>事务用于缴费的时候要更新多个地方时候，执行报错的时候需要回滚</p>
+<h2 id="事务注解参数-事务注解有没有什么参数-你需要去配置"><a href="#事务注解参数-事务注解有没有什么参数-你需要去配置" class="headerlink" title="事务注解参数 事务注解有没有什么参数 你需要去配置"></a>事务注解参数 事务注解有没有什么参数 你需要去配置</h2><p>RollBackfor NotRollBackfor timeout  事务隔离级别 事务传播行为</p>
+<p>一般回滚的话runtimeexception 都会回滚，error也会回滚</p>
+<h2 id="事务什么时候会回滚-是不是什么报错都会回滚"><a href="#事务什么时候会回滚-是不是什么报错都会回滚" class="headerlink" title="事务什么时候会回滚  是不是什么报错都会回滚"></a>事务什么时候会回滚  是不是什么报错都会回滚</h2><p>设置了notrollbackfor 就不会回滚，myisam存储引擎不会回滚事务，innerdb会回滚<br>如果你抛出的异常是Exception，是不会回滚的，需要抛出一个RuntimeException</p>
+<h2 id="事务传播行为类型"><a href="#事务传播行为类型" class="headerlink" title="事务传播行为类型"></a>事务传播行为类型</h2><p>TransactionDefinition.PROPAGATION_REQUIRED：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。这是默认值。<br>TransactionDefinition.PROPAGATION_REQUIRES_NEW：创建一个新的事务，如果当前存在事务，则把当前事务挂起。<br>TransactionDefinition.PROPAGATION_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。<br>TransactionDefinition.PROPAGATION_NOT_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。<br>TransactionDefinition.PROPAGATION_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。<br>TransactionDefinition.PROPAGATION_MANDATORY：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。<br>TransactionDefinition.PROPAGATION_NESTED：如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；<br>如果当前没有事务，则该取值等价于TransactionDefinition.PROPAGATION_REQUIRED。</p>
+<h2 id="事务四性"><a href="#事务四性" class="headerlink" title="事务四性"></a>事务四性</h2><p>ACID </p>
+<p>原子性：1的操作 任何操作都是1或者0 这个是靠undo日志来实现的</p>
+<p>持久性：故障之后任然可以达到恢复 用的是redo日志来实现的</p>
+<p>隔离性： 两个事务互相不打扰 是使用读写锁和MVCC来实现的</p>
+<p>一致性：数据加起来等于1 是用上面的三个来共同维护的</p>
+<h2 id="redo-undo-bin-log-relay-log"><a href="#redo-undo-bin-log-relay-log" class="headerlink" title="redo undo bin log relay log"></a>redo undo bin log relay log</h2><p>redo日志 及undo 日志<br>redo，undo日志都是保存到磁盘里面的</p>
+<p>redo日志当你操作的时候，突然程序崩溃了或者宕机，系统断电了<br>这个时候重启之后，redo日志会同步到数据库里面</p>
+<p>undo日志是用于回滚操作的，当你事务要执行回滚的时候，你就得通过undo日志来进行回滚</p>
+<p>binlog 这个也可以做数据恢复，最新也是先写到binlog里面，然后再写到redo日志里面，最后复制到数据库存储里面</p>
+<p>redo log是InnoDB存储引擎层的日志，binlog是MySQL Server层记录的日志， 两者都是记录了某些操作的日志(不是所有)自然有些重复（但两者记录的格式不同）</p>
+<p>所以说Oracle 也是有undo 和redo log的，但是没有binlog</p>
+<p>mysql主从复制，复制的是binlog 里面的数据   ，写到relay log  然后再写到数据库</p>
+<h3 id="binlog日志录入格式"><a href="#binlog日志录入格式" class="headerlink" title="binlog日志录入格式"></a>binlog日志录入格式</h3><p>1，statement，保存用户的所有操作sql，每一条修改数据的sql 都会保存到binlog中<br>2，row，不记录sql上下文语句，仅仅保存哪条数据被修改<br>3，mixed，是上面两种的混合</p>
+<h2 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h2><p>脏读：就是你提交了数据，我读取了你的数据，这个时候你又回滚了操作，我读取了你的脏数据</p>
+<p>不可重复读：就是你读取了数据，我update了数据，这个时候你又读取了数据，数据不一致<br>A select   -》 B update -》A select  这种应该是不可重复读啊</p>
+<p>幻读：你update100条数据，这个时候我又insert了一条，这个时候你查询一次，发现还有一条数据没有update<br>A select  -》 A update -》B insert -》A select   这种应该就是幻读了</p>
+<p>读未提交（read-uncommitted）<br>读的是别人未提交的数据</p>
+<p>读提交（read-committed）<br>读的是别人commit 数据 还是会出现幻读</p>
+<p>可重复读（repeatable-read）<br>读别人commit数据，然后加间隙锁不给读写</p>
+<p>串行化（serializable）<br>所有的读操作均为当前读，读加读锁 (S锁)，写加写锁 (X锁)。</p>
+<h1 id="mysql-锁机制"><a href="#mysql-锁机制" class="headerlink" title="mysql 锁机制"></a>mysql 锁机制</h1><h2 id="乐观锁-悲观锁"><a href="#乐观锁-悲观锁" class="headerlink" title="乐观锁 悲观锁"></a>乐观锁 悲观锁</h2><p>mysql 里面统一为悲观锁，没有乐观锁，乐观锁是人为的加个状态，例如版本号，更改一下版本号来更改状态，<br>悲观锁为读写锁，行 表锁，在操作之前先锁住表</p>
+<h2 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a>读写锁</h2><p>读锁可以并行，写锁又叫排他锁，不可以并行，会造成死锁，互相争夺资源</p>
+<h2 id="行锁-表锁"><a href="#行锁-表锁" class="headerlink" title="行锁 表锁"></a>行锁 表锁</h2><h2 id="间隙锁"><a href="#间隙锁" class="headerlink" title="间隙锁"></a>间隙锁</h2><p>间隙锁是发生在可重复读的事务隔离级别，在更新插入的时候会自动形成对应的间隙锁，间隙锁是一个分段锁，0-100 ，100-200,200-300…<br>，当有事务A 要插入的时候会引入间隙锁，这个时候B无法提交，这个就是间隙锁，但是这里会引发死锁问题，当事务B 也引入间隙锁<br>这个时候就死锁，谁也没法提交事务</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lusaisai/p/13400088.html">锁机制</a></p>
+<h2 id="MVCC多版本控制"><a href="#MVCC多版本控制" class="headerlink" title="MVCC多版本控制"></a>MVCC多版本控制</h2><p>undo log 中记录某行数据的多个版本的数据</p>
+<h2 id="当前读-快照读"><a href="#当前读-快照读" class="headerlink" title="当前读  快照读"></a>当前读  快照读</h2><p>当前读就是读取当前版本，insert update 这些操作都是当前读，会先获取当前最新数据，然后读取出来加锁，然后再操作<br>快照读就是读取历史版本，select 就是快照读<br>当前读的话会进行加锁的机制，在当前读会发生间隙锁的机制，就是不给别人读写，加上排他锁</p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>索引用来快速地寻找那些具有特定值的记录。如果没有索引，一般来说执行查询时遍历整张表。</p>
+<p>了解索引之前，首先要了解B+树，它是不能在非叶子节点命中的树，它的叶子节点全部是排序的，装载了所有数据</p>
+<p>索引的原理很简单，就是把无序的数据变成有序的查询<br>1、把创建了索引的列的内容进行排序<br>2、对排序结果生成倒排表<br>3、在倒排表内容上拼上数据地址链<br>4、在查询的时候，先拿到倒排表内容，再取出数据地址链，从而拿到具体数据</p>
+<h2 id="聚簇索引和非聚簇索引"><a href="#聚簇索引和非聚簇索引" class="headerlink" title="聚簇索引和非聚簇索引"></a>聚簇索引和非聚簇索引</h2><p>非聚簇索引就是叶子节点存储的是地址，然后地址指向数据<br>这个时候查询会变慢，为了优化这点问题，加上了聚簇索引，它可以实现叶子节点直接存储数据，不是指针</p>
+<p>索引算法有 BTree算法和Hash算法</p>
+<h2 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a>主键索引</h2><h2 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h2><h2 id="组合索引"><a href="#组合索引" class="headerlink" title="组合索引"></a>组合索引</h2><p>这里要说到最左前缀，组合索引要把最常查询的字段排在最前面，ABC三个组成的索引，A开头会走索引，其他开头不走索引</p>
+<h2 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h2><h2 id="回表"><a href="#回表" class="headerlink" title="回表"></a>回表</h2><p>例如我添加了普通索引K ，然后我select a from test where k = 12;<br>这个时候呢我们会先走k的索引，然后再查询到这条数据的主键，然后再通过主键查询到所有数据，这一个流程称为回表</p>
+<h1 id="解决mysql两个update-操作的解决方案"><a href="#解决mysql两个update-操作的解决方案" class="headerlink" title="解决mysql两个update 操作的解决方案"></a>解决mysql两个update 操作的解决方案</h1><h2 id="问题1-超卖问题"><a href="#问题1-超卖问题" class="headerlink" title="问题1 超卖问题"></a>问题1 超卖问题</h2><p>不能用快照读，要用当前读，不然数据多的时候会出现超卖问题，就是说解决方案<br>1，同步机制synchronized<br>2，要么写sql：update xx set count = count +1 where id=#{id},保证是当前读<br>3，加锁，加单个锁，变成一个进程 给库存表和余额表添加操作版本号字段，即使用乐观策略，进行cas操作。在每次update的时候先比较版本号是不是自己所获取到的版本号，是，则更新；否，则进行重试。<br>4，select …. for update语句触发mysql的互斥锁，这样其他线程在查询库存的时候就阻塞，从而达到并发安全。</p>
+<h2 id="问题2-保证两个update-原子性"><a href="#问题2-保证两个update-原子性" class="headerlink" title="问题2 保证两个update 原子性"></a>问题2 保证两个update 原子性</h2><p>1，用事务机制，保证原子性，一个update是另外一个update成功的前提，不然就回滚<br> 这个方法会出现长事务，数据库锁等待频繁，效率稍微低一些，但是还是可以接受的。<br>2，捕捉异常，手动进行回滚  执行效率提升，但是代码的复杂度会高很多。</p>
+<h1 id="MySQL中varchar与char的区别及varchar-50-中50代表什么含义？"><a href="#MySQL中varchar与char的区别及varchar-50-中50代表什么含义？" class="headerlink" title="MySQL中varchar与char的区别及varchar(50)中50代表什么含义？"></a>MySQL中varchar与char的区别及varchar(50)中50代表什么含义？</h1><p>varchar 是可变长度的   char 是不可变长度的，当同样存储‘hello’这个字符时候，varchar 就只是占用5个字符后面,而char(100)，就算存储5个字符<br>也会暂用100个字符，用varchar 可以节省存储空间。char(100)在后面都是补空格来填充的，但是order by 的时候会去掉。</p>
+<h1 id="mysql索引数据结构"><a href="#mysql索引数据结构" class="headerlink" title="mysql索引数据结构"></a>mysql索引数据结构</h1><p>1，二叉树——要是有序的数字的话，二叉树不合适会一直右边排布下去<br>2，红黑树——会自动平衡，不会一直排布下去，高度非常高，树的高度非常高，磁盘IO 非常多<br>3，B树———控制高度，树的高度比较少，但是没法进行范围查找，B树节点里面存储了数据，这里面要用到很多存储空间<br>4，B+树——–可以进行范围查找，同时节点里面只是存key，没有存储数据，数据放到叶子页面，这样可以存储很多数据</p>
+<h1 id="为什么mysql-要增加一个自增索引-用int-类型-为啥不用UUID"><a href="#为什么mysql-要增加一个自增索引-用int-类型-为啥不用UUID" class="headerlink" title="为什么mysql 要增加一个自增索引 用int 类型  为啥不用UUID"></a>为什么mysql 要增加一个自增索引 用int 类型  为啥不用UUID</h1><p>1，有利于范围查找<br>2，增加排序效率<br>3，提高扫表能力，顺序访问<br>4，减少分层，如果是UUID的话数据量会比较大<br>5，这个还要从表的插入有关，自增id的话 每次都在最后面一个插入，这样插入容易<br>但是用UUID的话 就每次插入都是要计算一遍，看下具体位置是在哪里，这个时候效率就比较低下了<br>然后当一页插不进去的时候，这个时候要插入额外的一条数据的时候，自增ID 没有这个问题，但是用UUID 会要分裂，分表来插入，这个时候会有问题</p>
+<h1 id="mysql-主从复制原理"><a href="#mysql-主从复制原理" class="headerlink" title="mysql 主从复制原理"></a>mysql 主从复制原理</h1><p>原理：<br>（1）master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制日志中；<br>（2）slave服务器会在一定时间间隔内对master二进制日志进行探测其是否发生改变，如果发生改变，则开始一个I/OThread请求master二进制事件<br>（3）同时主节点为每个I/O线程启动一个dump线程，用于向其发送二进制事件，并保存至从节点本地的中继日志中，从节点将启动SQL线程从中继日志中读取二进制日志，在本地重放，使得其数据和主节点的保持一致，最后I/OThread和SQLThread将进入睡眠状态，等待下一次被唤醒。<br>也就是说：</p>
+<h2 id="从库会生成两个线程-一个I-O线程-一个SQL线程"><a href="#从库会生成两个线程-一个I-O线程-一个SQL线程" class="headerlink" title="从库会生成两个线程,一个I/O线程,一个SQL线程;"></a>从库会生成两个线程,一个I/O线程,一个SQL线程;</h2><p>I/O线程会去请求主库的binlog,并将得到的binlog写到本地的relay-log(中继日志)文件中;<br>主库会生成一个log dump线程,用来给从库I/O线程传binlog;<br>SQL线程,会读取relay log文件中的日志,并解析成sql语句逐一执行;</p>
+<h2 id="分布式事务是怎么做的（seata框架）"><a href="#分布式事务是怎么做的（seata框架）" class="headerlink" title="分布式事务是怎么做的（seata框架）"></a>分布式事务是怎么做的（seata框架）</h2><ol>
+<li>二阶段提交协议 (2PC)<br> 协议中有两类节点：一个中心化协调者 (Coordinator) 节点与 N 个参与者 (Cohort) 节点。<br> 1），协调者询问所有的参与者是否可以提交事务，所有参与者向协调者投票，同时参与者执行询问发起为止的所有事务操作，并将Undo信息和Redo信息写入本地日志<br> 2），协调者根据参与者的投票结果，做出是否事务可以全局提交的决定，并通知所有参与者执行该决定，如若一个节点没有回复，那就是通知所有事务回滚。<br> 缺点<br> 1），一旦协调者所在服务器宕机，就会影响整个数据库集群的正常运行<br> 2），所有的参与者都需要听从协调者的统一调度，期间处于阻塞状态而不能从事其他操作，这样效率极其低下。<br> 3），两阶段提交协议虽然是分布式数据强一致性所设计，但仍然存在数据不一致性的可能性。比如在第二阶段中，假设协调者发出了事务 commit 通知，<br> 但是因为网络问题该通知仅被一部分参与者所收到并执行了commit 操作，其余的参与者则因为没有收到通知一直处于阻塞状态，这时候就产生了数据的不一致性。</li>
+<li>三阶段提交协议 (3PC)<br>针对两阶段提交存在的问题，三阶段提交协议通过引入一个 预询盘 阶段，以及超时策略来减少整个集群的阻塞时间，提升系统性能。<br>三阶段提交的三个阶段分别为：预询盘（can_commit）、预提交（pre_commit），以及事务提交（do_commit）。<br> 1），为甚需要cancommit<br> 假设有1个协调者，9个参与者。其中有一个参与者不具备执行该事务的能力。<br> 协调者发出prepare消息之后，其余参与者都将资源锁住，执行事务，写入undo和redo日志。<br> 协调者收到相应之后，发现有一个参与者不能参与。所以，又出一个roolback消息。其余8个参与者，又对消息进行回滚。这样子，是不是做了很多无用功？<br> 所以，引入can-Commit阶段，主要是为了在预执行之前，保证所有参与者都具备可执行条件，从而减少资源浪费。<br> 2)，这种方案解决了服务协调者单点问题，在cancommit 之后 precommit 之后 所有节点在docommit阶段要是超时没有收到协调者信息的时候会默认提交事务<br> 因为在precommit阶段已经知道所有节点都同意提交事务了</li>
+<li>基于消息的分布式事务<br> 基于rabbitmq的消息队列，每次发送的时候先执行A，然后再发送给rabbitmq 这样就不会消息丢失</li>
+</ol>
+<h1 id="怎么处理慢查询"><a href="#怎么处理慢查询" class="headerlink" title="怎么处理慢查询"></a>怎么处理慢查询</h1><p>1，先开启慢查询，并且把慢查询的日志打印，开启的是slow_query_log<br>2，explain去查看语句，看下语句有无走索引<br>3，优化sql，不要去用like及一些比较复杂的运算</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://xiexin.gitee.io/2020/03/21/mysql%E6%9C%BA%E5%88%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/03/25/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          单点登录（SSO）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/17/MQ%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MQ机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mysql机制" data-title="mysql机制" data-url="https://xiexin.gitee.io/2020/03/21/mysql%E6%9C%BA%E5%88%B6/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wonderfulxin"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2025 xiexin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: false
+	}
+</script>
+
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">JAVA资深程序猿</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

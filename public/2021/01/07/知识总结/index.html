@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="https://xiexin.gitee.io">
+  <title>java面试总结 | wonderful的自由空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要:java面试总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java面试总结">
+<meta property="og:url" content="https://xiexin.gitee.io/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="wonderful的自由空间">
+<meta property="og:description" content="摘要:java面试总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-11T06:28:09.223Z">
+<meta property="article:author" content="xiexin">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="wonderful的自由空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/main.css?v=4.0.0.css">
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/avatar.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+            
+    			
+            
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/wonderfulxin" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weixin" target="_blank" href="/13128257037" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:929992037@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wonderfulxin" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weixin" target="_blank" href="/13128257037" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:929992037@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-知识总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java面试总结
+    </h1>
+  
+
+        <a href="/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2021-01-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-07</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要:java面试总结</p>
+<span id="more"></span>
+<h1 id="dubbo底层rpc-原理"><a href="#dubbo底层rpc-原理" class="headerlink" title="dubbo底层rpc 原理"></a>dubbo底层rpc 原理</h1><p>ip 和端口 通过socket连接</p>
+<h1 id="mysql主从原理-binlog-gt-relaylog"><a href="#mysql主从原理-binlog-gt-relaylog" class="headerlink" title="mysql主从原理 binlog -&gt;relaylog"></a>mysql主从原理 binlog -&gt;relaylog</h1><h1 id="动态代理跟静态代理啥区别"><a href="#动态代理跟静态代理啥区别" class="headerlink" title="动态代理跟静态代理啥区别"></a>动态代理跟静态代理啥区别</h1><p>静态代理是直接代理，就是定义一个接口，然后A类实现它，然后另外B类也实现这个接口，B类里面有A类实现每个方法，这样实现的时候B类就可以代替A类，这就叫静态代理<br>JDK动态代理是通过invocationhandle实现的 实现一个类实现invocationhandle 实现invoce方法，然后强制转换成对应Proxy类，就不用实现接口的每个方法<br>CGlib动态代理类是通过MethodInterceptor  实现的，实现一个类实现MethodInterceptor ，实现intercept 方法， 然后强制转换成newProxy类</p>
+<h1 id="cglib动态代理跟jdk动态代理啥区别"><a href="#cglib动态代理跟jdk动态代理啥区别" class="headerlink" title="cglib动态代理跟jdk动态代理啥区别"></a>cglib动态代理跟jdk动态代理啥区别</h1><p>接口走jdk动态代理，其他走cjlib</p>
+<h1 id="怎么实现动态代理，原理"><a href="#怎么实现动态代理，原理" class="headerlink" title="怎么实现动态代理，原理"></a>怎么实现动态代理，原理</h1><h1 id="rebbitmq-exchange-分几类"><a href="#rebbitmq-exchange-分几类" class="headerlink" title="rebbitmq   exchange 分几类"></a>rebbitmq   exchange 分几类</h1><h1 id="有没看mybatis源码-mybatis怎么映射到dao的"><a href="#有没看mybatis源码-mybatis怎么映射到dao的" class="headerlink" title="有没看mybatis源码 mybatis怎么映射到dao的"></a>有没看mybatis源码 mybatis怎么映射到dao的</h1><h1 id="线程状态，怎么变成死锁"><a href="#线程状态，怎么变成死锁" class="headerlink" title="线程状态，怎么变成死锁"></a>线程状态，怎么变成死锁</h1><h1 id="synchronized和reentrantlock-底层原理"><a href="#synchronized和reentrantlock-底层原理" class="headerlink" title="synchronized和reentrantlock 底层原理"></a>synchronized和reentrantlock 底层原理</h1><h1 id="synchronized除了cas还有锁升级"><a href="#synchronized除了cas还有锁升级" class="headerlink" title="synchronized除了cas还有锁升级"></a>synchronized除了cas还有锁升级</h1><h1 id="synchronized-的实现涉及到锁的升级，具体为无锁、偏向锁、自旋锁、向OS申请重量级锁，"><a href="#synchronized-的实现涉及到锁的升级，具体为无锁、偏向锁、自旋锁、向OS申请重量级锁，" class="headerlink" title="synchronized 的实现涉及到锁的升级，具体为无锁、偏向锁、自旋锁、向OS申请重量级锁，"></a>synchronized 的实现涉及到锁的升级，具体为无锁、偏向锁、自旋锁、向OS申请重量级锁，</h1><h1 id="reentrantlock-除了CAS-还有AQS"><a href="#reentrantlock-除了CAS-还有AQS" class="headerlink" title="reentrantlock 除了CAS  还有AQS"></a>reentrantlock 除了CAS  还有AQS</h1><h1 id="spring-单例模式-工厂模式-观察者模式"><a href="#spring-单例模式-工厂模式-观察者模式" class="headerlink" title="spring 单例模式 工厂模式  观察者模式"></a>spring 单例模式 工厂模式  观察者模式</h1><h1 id="观察者模式主要用于什么地方"><a href="#观察者模式主要用于什么地方" class="headerlink" title="观察者模式主要用于什么地方"></a>观察者模式主要用于什么地方</h1><h1 id="spring事务是属于哪里的，代码怎么实现"><a href="#spring事务是属于哪里的，代码怎么实现" class="headerlink" title="spring事务是属于哪里的，代码怎么实现"></a>spring事务是属于哪里的，代码怎么实现</h1><h1 id="nio原理"><a href="#nio原理" class="headerlink" title="nio原理"></a>nio原理</h1><h1 id="netty线程模式"><a href="#netty线程模式" class="headerlink" title="netty线程模式"></a>netty线程模式</h1><h1 id="dubbo使用的时候遇到过什么问题"><a href="#dubbo使用的时候遇到过什么问题" class="headerlink" title="dubbo使用的时候遇到过什么问题"></a>dubbo使用的时候遇到过什么问题</h1><h1 id="mysql-建表的时候要注意什么"><a href="#mysql-建表的时候要注意什么" class="headerlink" title="mysql 建表的时候要注意什么"></a>mysql 建表的时候要注意什么</h1><h1 id="mysql中-使用explain时应注意那些字段"><a href="#mysql中-使用explain时应注意那些字段" class="headerlink" title="mysql中 使用explain时应注意那些字段"></a>mysql中 使用explain时应注意那些字段</h1><h1 id="热部署-冷部署"><a href="#热部署-冷部署" class="headerlink" title="热部署 冷部署"></a>热部署 冷部署</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h1 id="k8s其他功能"><a href="#k8s其他功能" class="headerlink" title="k8s其他功能"></a>k8s其他功能</h1><h1 id="引用的分类"><a href="#引用的分类" class="headerlink" title="#引用的分类"></a>#引用的分类</h1><h2 id="强引用-jvm-情愿爆出OOM-也不回收的对象"><a href="#强引用-jvm-情愿爆出OOM-也不回收的对象" class="headerlink" title="强引用   jvm 情愿爆出OOM 也不回收的对象"></a>强引用   jvm 情愿爆出OOM 也不回收的对象</h2><h2 id="弱引用-jvm查到的话就会回收-不管内存够不够"><a href="#弱引用-jvm查到的话就会回收-不管内存够不够" class="headerlink" title="弱引用    jvm查到的话就会回收 不管内存够不够"></a>弱引用    jvm查到的话就会回收 不管内存够不够</h2><h2 id="软引用-Jvm-如果内存不够用的时候就会回收"><a href="#软引用-Jvm-如果内存不够用的时候就会回收" class="headerlink" title="软引用    Jvm 如果内存不够用的时候就会回收"></a>软引用    Jvm 如果内存不够用的时候就会回收</h2><h2 id="虚引用-jvm看到就回收"><a href="#虚引用-jvm看到就回收" class="headerlink" title="虚引用    jvm看到就回收"></a>虚引用    jvm看到就回收</h2><h1 id="字节面试一面总结"><a href="#字节面试一面总结" class="headerlink" title="字节面试一面总结"></a>字节面试一面总结</h1><h1 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h1><p>在一个字符串S内查找一个子串s的出现位置。<br>public static int indexOf(char[] chars, char[] sub) {<br>return -1;<br>}</p>
+<h1 id="如何保证RabbitMQ不被重复消费？"><a href="#如何保证RabbitMQ不被重复消费？" class="headerlink" title="如何保证RabbitMQ不被重复消费？"></a>如何保证RabbitMQ不被重复消费？</h1><h1 id="如何保证RabbitMQ消息的可靠传输？"><a href="#如何保证RabbitMQ消息的可靠传输？" class="headerlink" title="如何保证RabbitMQ消息的可靠传输？"></a>如何保证RabbitMQ消息的可靠传输？</h1><h1 id="activeMQ"><a href="#activeMQ" class="headerlink" title="activeMQ"></a>activeMQ</h1><h1 id="dubbo-与springcloud-区别"><a href="#dubbo-与springcloud-区别" class="headerlink" title="dubbo 与springcloud 区别"></a>dubbo 与springcloud 区别</h1><h1 id="zookeeper-单节点还是多节点-如果挂了怎么办"><a href="#zookeeper-单节点还是多节点-如果挂了怎么办" class="headerlink" title="zookeeper 单节点还是多节点 如果挂了怎么办"></a>zookeeper 单节点还是多节点 如果挂了怎么办</h1><h1 id="zk集群是怎么部署的"><a href="#zk集群是怎么部署的" class="headerlink" title="zk集群是怎么部署的"></a>zk集群是怎么部署的</h1><h1 id="并发锁-分布式锁"><a href="#并发锁-分布式锁" class="headerlink" title="并发锁 分布式锁"></a>并发锁 分布式锁</h1><h1 id="支付宝微信调用过程中怎么确保安全"><a href="#支付宝微信调用过程中怎么确保安全" class="headerlink" title="支付宝微信调用过程中怎么确保安全"></a>支付宝微信调用过程中怎么确保安全</h1><h1 id="微信支付宝是怎么做订单的拦截消费"><a href="#微信支付宝是怎么做订单的拦截消费" class="headerlink" title="微信支付宝是怎么做订单的拦截消费"></a>微信支付宝是怎么做订单的拦截消费</h1><h1 id="mysql-索引的实现原理"><a href="#mysql-索引的实现原理" class="headerlink" title="mysql 索引的实现原理"></a>mysql 索引的实现原理</h1><h1 id="mysql-节点存储的是什么-非叶子节点-和叶子节点"><a href="#mysql-节点存储的是什么-非叶子节点-和叶子节点" class="headerlink" title="mysql 节点存储的是什么 非叶子节点 和叶子节点"></a>mysql 节点存储的是什么 非叶子节点 和叶子节点</h1><h1 id="一个节点最大存储-16K"><a href="#一个节点最大存储-16K" class="headerlink" title="一个节点最大存储 16K"></a>一个节点最大存储 16K</h1><h1 id="16k是相对于什么来说的"><a href="#16k是相对于什么来说的" class="headerlink" title="16k是相对于什么来说的"></a>16k是相对于什么来说的</h1><h1 id="Username-查询-最左前缀原则-为什么"><a href="#Username-查询-最左前缀原则-为什么" class="headerlink" title="Username 查询 % 最左前缀原则 为什么"></a>Username 查询 % 最左前缀原则 为什么</h1><h1 id="浩鲸科技一面"><a href="#浩鲸科技一面" class="headerlink" title="浩鲸科技一面"></a>浩鲸科技一面</h1><h2 id="dubbo重试机制"><a href="#dubbo重试机制" class="headerlink" title="dubbo重试机制"></a>dubbo重试机制</h2><p>1，Dubbo支持多种失败重试机制：<br>Failover Cluster - 失败自动切换<br>Failfast Cluster - 快速失败<br>Failsafe Cluster - 失败安全<br>Failback Cluster - 失败自动恢复<br>Forking Cluster - 并行调用多个服务提供者<br>Broadcast - 广播轮询调用所有Provider</p>
+<h2 id="zk服务注册发现过程，如果一个断了，怎么通知到对方"><a href="#zk服务注册发现过程，如果一个断了，怎么通知到对方" class="headerlink" title="zk服务注册发现过程，如果一个断了，怎么通知到对方"></a>zk服务注册发现过程，如果一个断了，怎么通知到对方</h2><p>这里写的非常清楚<a target="_blank" rel="noopener" href="https://blog.csdn.net/zyhlwzy/article/details/101847565">zk服务注册发现过程</a><br>1，要清楚zk的数据模型，主要是一个树形结构，也就是目录结构 eg:/11/22/33 数据模型中的每一个节点，Zookeeper称之为Znode<br>2，zk的watcher机制，和znode绑定的一个监听器，当有节点不提供服务的时候自动提示<br>3，具体流程<br>1）客户端调用getData方法向服务器获取某个Znode节点的数据时，设置watch为true。<br>服务端接到请求后，返回节点的数据，并在维护的WatchTable中插入被Watch的Znode路径以及Watcher（watch该Znode的客户端）；<br>2）当被Watch的Znode被删除或者更新之后，Zookeeper服务器会查找Watch Table，找到在Znode上对应的所有Watcher，<br>异步通知对应的客户端，并且删除Watch Table中对应的Key：Value；<br>4，zk的服务注册和发现流程<br>1）服务注册：服务提供者（Provider）启动时，会向Zookeeper服务端注册服务信息，<br>即会在Zookeeper服务器上创建一个服务节点，并在节点上存储服务的相关数据（如服务提供者的ip地址、端口等），比如注册一个用户注册服务（user/register）:<br>2）服务发现：服务消费者（Consumer）启动时，会根据本身依赖的服务信息，向Zookeeper服务端获取注册的服务信息并设置Watch，<br>获取到注册的服务信息之后将服务提供者信息缓存在本地，调用服务时直接根据从Zookeeper注册中心获取到的服务注册信息调用服务，比如发现用户注册服务（user/register）并调用。<br>3）服务通知（类似服务心跳检测）：当服务提供者因为某种原因宕机或不提供服务之后，Zookeeper服务注册中心的对应服务节点会被删除，<br>因为服务消费者在获取服务信息的时候在对应节点上设置了Watch，因此节点删除之后会触发对应的Watcher，<br>Zookeeper注册中心会异步向服务所关联的所有服务消费者发出节点删除的通知，服务消费者根据收到的通知更新缓存的服务列表。</p>
+<h2 id="zk节点类型"><a href="#zk节点类型" class="headerlink" title="zk节点类型"></a>zk节点类型</h2><p>1.持久节点(PERSISTENT)<br>持久节点，创建后一直存在，直到主动删除此节点。<br>2.持久顺序节点(PERSISTENT_SEQUENTIAL)<br>持久顺序节点，创建后一直存在，直到主动删除此节点。在ZK中，每个父节点会为它的第一级子节点维护一份时序，记录每个子节点创建的先后顺序。<br>3.临时节点(EPHEMERAL)<br>临时节点在客户端会话失效后节点自动清除。临时节点下面不能创建子节点。<br>4.顺序临时节点(EPHEMERAL_SEQUENTIAL)<br>临时节点在客户端会话失效后节点自动清除。临时节点下面不能创建子节点。父节点getChildren会获得顺序的节点列表。</p>
+<h2 id="zk还可以用来做什么，具体怎么实现"><a href="#zk还可以用来做什么，具体怎么实现" class="headerlink" title="zk还可以用来做什么，具体怎么实现"></a>zk还可以用来做什么，具体怎么实现</h2><p>1,分布式锁，具体实现方式<br>1）znode 可以被监控。<br>节点数据修改、子节点变化、节点删除等。<br>一旦变化可以通知设置监控的客户端。<br>通过这个特性可以实现的功能包括配置的集中管理，集群管理，分布式锁等等。<br>2）分布式锁步骤。<br>注：zk设置watcher的操作和读操作是原子的。读取子节点列表同时设置监听器<br>    1. 父节点持久节点/lock<br>    2. 所有客户端在/lock下创建 瞬时有序节点/lock/seq-0000000000、/lock/seq-0000000001、依次类推<br>    3. 获取/lock下所有子节点getChildren(“/lock”)方法，判断自己是否为最小的。是：获取锁； 否：监听自己前一位子节点的删除消息(调用exist()方法，同时注册事件监听。 )，<br>    获得通知后重复该步骤。<br>    4. 执行代码。完成后释放锁。<br>4）使用zookeeper + curator，完成分布式锁。</p>
+<h2 id="redis与mysql-怎么做到缓存一致性"><a href="#redis与mysql-怎么做到缓存一致性" class="headerlink" title="redis与mysql 怎么做到缓存一致性"></a>redis与mysql 怎么做到缓存一致性</h2><p>1、MySQL binlog增量发布订阅消费+消息队列+增量数据更新到redis<br>    1）读请求走Redis：热数据基本都在Redis<br>    2）写请求走MySQL: 增删改都操作MySQL<br>    3）更新Redis数据：MySQ的数据操作binlog，来更新到Redis<br>2、Redis更新<br>    1）数据操作主要分为两块：<br>    一个是全量(将全部数据一次写入到redis)<br>    一个是增量（实时更新）<br>    这里说的是增量,指的是mysql的update、insert、delate变更数据。<br>    这样一旦MySQL中产生了新的写入、更新、删除等操作，就可以把binlog相关的消息推送至Redis，Redis再根据binlog中的记录，对Redis进行更新。就无需在从业务线去操作缓存内容<br>    2）每次写数据库的时候都把redis的数据给删掉，读数据库的时候再保存到redis 缓存<br>3、延迟双删，一定程度可以解决，就是写数据库之后 睡眠一段时间，然后再删除一次，但是不一定百分百解决问题，而且延迟了主线程<br>4，分布式锁，可以解决，并发问题串行化，但是效率低<br>5，读锁，写锁可以一定程度优化，读多写少，读读不互斥，写写互斥</p>
+<h2 id="怎么保证redis-高可用"><a href="#怎么保证redis-高可用" class="headerlink" title="怎么保证redis 高可用"></a>怎么保证redis 高可用</h2><p>redis高并发：主从架构，一主多从，一般来说，很多项目其实就足够了，单主用来写入数据，单机几万QPS，多从用来查询数据，多个从实例可以提供每秒10万的QPS。<br>redis高并发的同时，还需要容纳大量的数据：一主多从，每个实例都容纳了完整的数据，比如redis主就10G的内存量，其实你最多只能容纳10g的数据量。<br>如果你的缓存要容纳的数据量很大，达到了几十g，甚至几百g，或者是几t，那你就需要redis集群，而且用redis集群之后，可以提供可能每秒几十万的读写并发。<br>redis高可用：如果你做主从架构部署，其实就是加上哨兵就可以了，就可以实现，任何一个实例宕机，自动会进行主备切换。</p>
+<h2 id="redis-集群是怎么搭建的"><a href="#redis-集群是怎么搭建的" class="headerlink" title="redis 集群是怎么搭建的"></a>redis 集群是怎么搭建的</h2><p>当启动一个 slave node 的时候，它会发送一个 PSYNC 命令给 master node。<br>如果这是slave node重新连接master node，那么master node仅仅会复制给slave部分缺少的数据;如果这是 slave node 初次连接到 master node，那么会触发一次 full resynchronization 全量复制。<br>开始full resynchronization的时候，master 会启动一个后台线程，开始生成一份 RDB 快照文件，同时还会将从客户端新收到的所有写命令缓存在内存中。RDB 文件生成完毕后， master 会将这个 RDB 发送给 slave，slave 会先写入本地磁盘，然后再从本地磁盘加载到内存中，接着 master 会将内存中缓存的写命令发送到 slave，slave 也会同步这些数据。<br>slave node 如果跟 master node 有网络故障，断开了连接，会自动重连，连接之后 master node 仅会复制给 slave 部分缺少的数据。master如果发现有多个slave node都来重新连接，仅仅会启动一个rdb save操作，用一份数据服务所有slave node。</p>
+<h2 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h2><p>java中主要是用的是Sharding-JDBC分库分表  整合springboot 非常方便</p>
+<h2 id="分布式事务是怎么做的seata"><a href="#分布式事务是怎么做的seata" class="headerlink" title="分布式事务是怎么做的seata"></a>分布式事务是怎么做的seata</h2><ol>
+<li>二阶段提交协议 (2PC)<br> 协议中有两类节点：一个中心化协调者 (Coordinator) 节点与 N 个参与者 (Cohort) 节点。<br> 1），协调者询问所有的参与者是否可以提交事务，所有参与者向协调者投票，同时参与者执行询问发起为止的所有事务操作，并将Undo信息和Redo信息写入本地日志<br> 2），协调者根据参与者的投票结果，做出是否事务可以全局提交的决定，并通知所有参与者执行该决定，如若一个节点没有回复，那就是通知所有事务回滚。<br> 缺点<br> 1），一旦协调者所在服务器宕机，就会影响整个数据库集群的正常运行<br> 2），所有的参与者都需要听从协调者的统一调度，期间处于阻塞状态而不能从事其他操作，这样效率极其低下。<br> 3），两阶段提交协议虽然是分布式数据强一致性所设计，但仍然存在数据不一致性的可能性。比如在第二阶段中，假设协调者发出了事务 commit 通知，<br> 但是因为网络问题该通知仅被一部分参与者所收到并执行了commit 操作，其余的参与者则因为没有收到通知一直处于阻塞状态，这时候就产生了数据的不一致性。</li>
+<li>三阶段提交协议 (3PC)<br>针对两阶段提交存在的问题，三阶段提交协议通过引入一个 预询盘 阶段，以及超时策略来减少整个集群的阻塞时间，提升系统性能。<br>三阶段提交的三个阶段分别为：预询盘（can_commit）、预提交（pre_commit），以及事务提交（do_commit）。<br> 1），为甚需要cancommit<br> 假设有1个协调者，9个参与者。其中有一个参与者不具备执行该事务的能力。<br> 协调者发出prepare消息之后，其余参与者都将资源锁住，执行事务，写入undo和redo日志。<br> 协调者收到相应之后，发现有一个参与者不能参与。所以，又出一个roolback消息。其余8个参与者，又对消息进行回滚。这样子，是不是做了很多无用功？<br> 所以，引入can-Commit阶段，主要是为了在预执行之前，保证所有参与者都具备可执行条件，从而减少资源浪费。<br> 2)，这种方案解决了服务协调者单点问题，在cancommit 之后 precommit 之后 所有节点在docommit阶段要是超时没有收到协调者信息的时候会默认提交事务<br> 因为在precommit阶段已经知道所有节点都同意提交事务了</li>
+<li>基于消息的分布式事务<br> 基于rabbitmq的消息队列，每次发送的时候先执行A，然后再发送给rabbitmq 这样就不会消息丢失<h2 id="session与token和cookie区别"><a href="#session与token和cookie区别" class="headerlink" title="session与token和cookie区别"></a>session与token和cookie区别</h2>1，session的中文翻译是“会话”，当用户打开某个web应用时，便与web服务器产生一次session<br>2，cookie是保存在本地终端的数据。cookie由服务器生成，发送给浏览器，浏览器把cookie以kv形式保存到某个目录下的文本文件内，下一次请求同一网站时会把该cookie发送给服务器<br>3，token的意思是“令牌”，是用户身份的验证方式，最简单的token组成uid<br>cookie 和session的区别<br>1）、cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>2）、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗<br>考虑到安全应当使用session。<br>3）、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能<br>考虑到减轻服务器性能方面，应当使用COOKIE。<br>4）、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</li>
+</ol>
+<p>5)、所以个人建议：<br>   将登陆信息等重要信息存放为SESSION<br>   其他信息如果需要保留，可以放在COOKIE中</p>
+<h1 id="shein一面"><a href="#shein一面" class="headerlink" title="shein一面"></a>shein一面</h1><h2 id="springboot有什么优点-特性"><a href="#springboot有什么优点-特性" class="headerlink" title="springboot有什么优点 特性"></a>springboot有什么优点 特性</h2><h2 id="mysql-插入一千条一万条语句怎么办"><a href="#mysql-插入一千条一万条语句怎么办" class="headerlink" title="mysql 插入一千条一万条语句怎么办"></a>mysql 插入一千条一万条语句怎么办</h2><p>INSERT INTO<br>items(name,city,price,number,picture)<br>VALUES<br>(‘耐克运动鞋’,’广州’,500,1000,’003.jpg’),<br>……<br>(‘耐克运动鞋2’,’广州2’,500,1000,’002.jpg’);</p>
+<p>java代码的话是先用for循环先拼接好，然后再拼接语句insert ，然后再执行代码</p>
+<h2 id="慢查询怎么看然后怎么优化-举个栗子"><a href="#慢查询怎么看然后怎么优化-举个栗子" class="headerlink" title="慢查询怎么看然后怎么优化  举个栗子"></a>慢查询怎么看然后怎么优化  举个栗子</h2><h2 id="ABC-三列组合索引-这个时候-A-B-in-C-这个时候会不会走索引"><a href="#ABC-三列组合索引-这个时候-A-B-in-C-这个时候会不会走索引" class="headerlink" title="ABC 三列组合索引 这个时候 A= B in C =   这个时候会不会走索引"></a>ABC 三列组合索引 这个时候 A= B in C =   这个时候会不会走索引</h2><h2 id="为什么最左前缀只走第一列-最左前缀原理-要清楚存储数据原理-一个节点存储了三个值-代表三个数值"><a href="#为什么最左前缀只走第一列-最左前缀原理-要清楚存储数据原理-一个节点存储了三个值-代表三个数值" class="headerlink" title="为什么最左前缀只走第一列  最左前缀原理 要清楚存储数据原理 一个节点存储了三个值 代表三个数值"></a>为什么最左前缀只走第一列  最左前缀原理 要清楚存储数据原理 一个节点存储了三个值 代表三个数值</h2><h2 id="mybatis-常用标签-foreach"><a href="#mybatis-常用标签-foreach" class="headerlink" title="mybatis 常用标签 foreach"></a>mybatis 常用标签 foreach</h2><h2 id="redis-常用指令-lpush-lset"><a href="#redis-常用指令-lpush-lset" class="headerlink" title="redis 常用指令 lpush  lset"></a>redis 常用指令 lpush  lset</h2><h2 id="rabbitmq-确认机制怎么实现-publisher-confirms"><a href="#rabbitmq-确认机制怎么实现-publisher-confirms" class="headerlink" title="rabbitmq 确认机制怎么实现 publisher-confirms"></a>rabbitmq 确认机制怎么实现 publisher-confirms</h2><h2 id="elk-Elasticserarch-Logstash-Kibana"><a href="#elk-Elasticserarch-Logstash-Kibana" class="headerlink" title="elk  (Elasticserarch + Logstash + Kibana)"></a>elk  (Elasticserarch + Logstash + Kibana)</h2><h2 id="romda-表达式"><a href="#romda-表达式" class="headerlink" title="romda 表达式"></a>romda 表达式</h2><p>分组        Map&lt;String, List<User>&gt; groupBySex = userList.stream().collect(Collectors.groupingBy(User::getSex));<br>过滤        List<User> userCommonList = userList.stream().filter(a -&gt; !a.getJobNumber().equals(“201901”)).collect(Collectors.toList());</p>
+<h2 id="为什么要使用联合索引"><a href="#为什么要使用联合索引" class="headerlink" title="为什么要使用联合索引"></a>为什么要使用联合索引</h2><h3 id="减少开销。建一个联合索引-col1-col2-col3-，实际相当于建了-col1-col1-col2-col1-col2-col3-三个索引。每多一个索引，都会增加写操作的开销和磁盘空间的开销。"><a href="#减少开销。建一个联合索引-col1-col2-col3-，实际相当于建了-col1-col1-col2-col1-col2-col3-三个索引。每多一个索引，都会增加写操作的开销和磁盘空间的开销。" class="headerlink" title="减少开销。建一个联合索引(col1,col2,col3)，实际相当于建了(col1),(col1,col2),(col1,col2,col3)三个索引。每多一个索引，都会增加写操作的开销和磁盘空间的开销。"></a>减少开销。建一个联合索引(col1,col2,col3)，实际相当于建了(col1),(col1,col2),(col1,col2,col3)三个索引。每多一个索引，都会增加写操作的开销和磁盘空间的开销。</h3><p>对于大量数据的表，使用联合索引会大大的减少开销！</p>
+<h3 id="覆盖索引。对联合索引-col1-col2-col3-，如果有如下的sql-select-col1-col2-col3-from-test-where-col1-1-and-col2-2。"><a href="#覆盖索引。对联合索引-col1-col2-col3-，如果有如下的sql-select-col1-col2-col3-from-test-where-col1-1-and-col2-2。" class="headerlink" title="覆盖索引。对联合索引(col1,col2,col3)，如果有如下的sql: select col1,col2,col3 from test where col1=1 and col2=2。"></a>覆盖索引。对联合索引(col1,col2,col3)，如果有如下的sql: select col1,col2,col3 from test where col1=1 and col2=2。</h3><p>那么MySQL可以直接通过遍历索引取得数据，而无需回表，这减少了很多的随机io操作。减少io操作，特别的随机io其实是dba主要的优化策略。<br>所以，在真正的实际应用中，覆盖索引是主要的提升性能的优化手段之一。</p>
+<h3 id="效率高。索引列越多，通过索引筛选出的数据越少。有1000W条数据的表，有如下sql-select-from-table-where-col1-1-and-col2-2-and-col3-3"><a href="#效率高。索引列越多，通过索引筛选出的数据越少。有1000W条数据的表，有如下sql-select-from-table-where-col1-1-and-col2-2-and-col3-3" class="headerlink" title="效率高。索引列越多，通过索引筛选出的数据越少。有1000W条数据的表，有如下sql:select from table where col1=1 and col2=2 and col3=3,"></a>效率高。索引列越多，通过索引筛选出的数据越少。有1000W条数据的表，有如下sql:select from table where col1=1 and col2=2 and col3=3,</h3><p>假设假设每个条件可以筛选出10%的数据，如果只有单值索引，那么通过该索引能筛选出1000W10%=100w条数据，然后再回表从100w条数据中找到符合col2=2 and col3= 3的数据，<br>然后再排序，再分页；如果是联合索引，通过索引筛选出1000w10% 10% *10%=1w，效率提升可想而知！</p>
+<h1 id="保利一面"><a href="#保利一面" class="headerlink" title="保利一面"></a>保利一面</h1><h2 id="提前预警系统问题"><a href="#提前预警系统问题" class="headerlink" title="提前预警系统问题"></a>提前预警系统问题</h2><h2 id="springboot-注解实现原理"><a href="#springboot-注解实现原理" class="headerlink" title="springboot 注解实现原理"></a>springboot 注解实现原理</h2><h2 id="zookeeper有什么缺点-AP-和-CP-效率不高"><a href="#zookeeper有什么缺点-AP-和-CP-效率不高" class="headerlink" title="zookeeper有什么缺点  AP 和 CP  效率不高"></a>zookeeper有什么缺点  AP 和 CP  效率不高</h2><h2 id="dubbo-线程模型"><a href="#dubbo-线程模型" class="headerlink" title="dubbo 线程模型"></a>dubbo 线程模型</h2><h2 id="dubbo怎么做到负载均衡-loadbalance-xml配置文件里面直接配置"><a href="#dubbo怎么做到负载均衡-loadbalance-xml配置文件里面直接配置" class="headerlink" title="dubbo怎么做到负载均衡  loadbalance xml配置文件里面直接配置"></a>dubbo怎么做到负载均衡  loadbalance xml配置文件里面直接配置</h2><h2 id="四种负载均衡"><a href="#四种负载均衡" class="headerlink" title="四种负载均衡"></a>四种负载均衡</h2><p>1，随机<br>2，轮训<br>3，一致性哈希<br>4，最少活跃数</p>
+<h2 id="elk-调用链-就是监听requestid-log4j"><a href="#elk-调用链-就是监听requestid-log4j" class="headerlink" title="elk 调用链 就是监听requestid log4j"></a>elk 调用链 就是监听requestid log4j</h2><h2 id="并发高怎么设计系统"><a href="#并发高怎么设计系统" class="headerlink" title="并发高怎么设计系统"></a>并发高怎么设计系统</h2><p>1，使用缓存redis<br>2，线程池<br>3，nginx 负载均衡<br>4，消息队列</p>
+<h2 id="redis-过期机制"><a href="#redis-过期机制" class="headerlink" title="redis 过期机制"></a>redis 过期机制</h2><p>1，定时删除 在设置某个key 的过期时间同时，我们创建一个定时器，让定时器在该过期时间到来时，立即执行对其进行删除的操作。<br>2，惰性删除 设置该key 过期时间后，我们不去管它，当需要该key时，我们在检查其是否过期，如果过期，我们就删掉它，反之返回该key。<br>3，定期删除 每隔一段时间，我们就对一些key进行检查，删除里面过期的key。</p>
+<h1 id="阿里一面"><a href="#阿里一面" class="headerlink" title="阿里一面"></a>阿里一面</h1><h2 id="秒杀设计-要考虑什么"><a href="#秒杀设计-要考虑什么" class="headerlink" title="秒杀设计 要考虑什么"></a>秒杀设计 要考虑什么</h2><p>1，前端限流 -按钮只能按一次<br>2，后端限流 -利用MQ削锋<br>3，后端redis防止超卖<br>4，后端mysql限制<br>5，限制IP多次请求，缓存到redis里面<br>6，</p>
+<h2 id="java代码如何保证原子性-原子加-原子减-AtomicInteger"><a href="#java代码如何保证原子性-原子加-原子减-AtomicInteger" class="headerlink" title="java代码如何保证原子性 原子加 原子减   AtomicInteger"></a>java代码如何保证原子性 原子加 原子减   AtomicInteger</h2><h2 id="synchronized和reentrantlock-区别"><a href="#synchronized和reentrantlock-区别" class="headerlink" title="synchronized和reentrantlock 区别"></a>synchronized和reentrantlock 区别</h2><h2 id="synchronized-可以锁哪些对象，有什么区别"><a href="#synchronized-可以锁哪些对象，有什么区别" class="headerlink" title="synchronized 可以锁哪些对象，有什么区别"></a>synchronized 可以锁哪些对象，有什么区别</h2><p>1，对象 变量  对象锁<br>2，代码块  对象锁<br>3，类  类锁<br>1、对于静态方法，由于此时对象还未生成，所以只能采用类锁；<br>2、只要采用类锁，就会拦截所有线程，只能让一个线程访问。<br>3、对于对象锁（this），如果是同一个实例，就会按顺序访问，但是如果是不同实例，就可以同时访问。<br>4、如果对象锁跟访问的对象没有关系，那么就会都同时访问。</p>
+<h2 id="AtomicInteger-原理-CAS-volatile修饰的int值-做成原子加-原子减"><a href="#AtomicInteger-原理-CAS-volatile修饰的int值-做成原子加-原子减" class="headerlink" title="AtomicInteger 原理  CAS volatile修饰的int值 做成原子加 原子减"></a>AtomicInteger 原理  CAS volatile修饰的int值 做成原子加 原子减</h2><h2 id="垃圾处理GC-调优-XMX-XMS-XMN"><a href="#垃圾处理GC-调优-XMX-XMS-XMN" class="headerlink" title="垃圾处理GC 调优 -XMX  -XMS  -XMN"></a>垃圾处理GC 调优 -XMX  -XMS  -XMN</h2><h1 id="美的一面"><a href="#美的一面" class="headerlink" title="美的一面"></a>美的一面</h1><h2 id="SPI-dubbo的spi机制"><a href="#SPI-dubbo的spi机制" class="headerlink" title="SPI  dubbo的spi机制"></a>SPI  dubbo的spi机制</h2><p>SPI全称Service Provider Interface，是Java提供的一套用来被第三方实现或者扩展的接口，<br>它可以用来启用框架扩展和替换组件。 SPI的作用就是为这些被扩展的API寻找服务实现。<br>@spi 配置它可以扩展</p>
+<h2 id="java-spi"><a href="#java-spi" class="headerlink" title="java spi"></a>java spi</h2><p>1，一种扩展机制，JDBC实现的接口就是driver，但是这个接口是扩展出去的，很多接口都会实现的<br>需要在META-INF的配置文件里面去配置对应service 接口<br>2，缺点：不能做ioc 和aop 不能获取单独的一个实现类</p>
+<h2 id="ZK集群选举的一个过程"><a href="#ZK集群选举的一个过程" class="headerlink" title="ZK集群选举的一个过程"></a>ZK集群选举的一个过程</h2><p>Zab协议</p>
+<h2 id="redis集群-同步原理-rdb-aof文件"><a href="#redis集群-同步原理-rdb-aof文件" class="headerlink" title="redis集群 同步原理 rdb aof文件"></a>redis集群 同步原理 rdb aof文件</h2><h2 id="哨兵怎么跟redis的节点通信的-master-slave节点"><a href="#哨兵怎么跟redis的节点通信的-master-slave节点" class="headerlink" title="哨兵怎么跟redis的节点通信的 master  slave节点"></a>哨兵怎么跟redis的节点通信的 master  slave节点</h2><p>哨兵会给所有节点发ping指令，然后其他节点会回复pong指令，如果一段时间都没回复，那就是断开了</p>
+<h2 id="哨兵选举"><a href="#哨兵选举" class="headerlink" title="哨兵选举"></a>哨兵选举</h2><p>1，配置priority 优先级最高的<br>2，选择复制量最大的</p>
+<h2 id="主从结构哨兵是否有用，假如一个节点掉了，会到哪里"><a href="#主从结构哨兵是否有用，假如一个节点掉了，会到哪里" class="headerlink" title="主从结构哨兵是否有用，假如一个节点掉了，会到哪里"></a>主从结构哨兵是否有用，假如一个节点掉了，会到哪里</h2><h2 id="mysql集群是用什么来做-模式是怎么样实现的"><a href="#mysql集群是用什么来做-模式是怎么样实现的" class="headerlink" title="mysql集群是用什么来做 模式是怎么样实现的"></a>mysql集群是用什么来做 模式是怎么样实现的</h2><h2 id="mysql主节点和从节点是怎么同步的-binlog-和relaylog"><a href="#mysql主节点和从节点是怎么同步的-binlog-和relaylog" class="headerlink" title="mysql主节点和从节点是怎么同步的 binlog 和relaylog"></a>mysql主节点和从节点是怎么同步的 binlog 和relaylog</h2><h2 id="如果从库查没有的话，这个时候你要怎么办，你要先保存到redis，之后再存到从节点（主从延迟）"><a href="#如果从库查没有的话，这个时候你要怎么办，你要先保存到redis，之后再存到从节点（主从延迟）" class="headerlink" title="如果从库查没有的话，这个时候你要怎么办，你要先保存到redis，之后再存到从节点（主从延迟）"></a>如果从库查没有的话，这个时候你要怎么办，你要先保存到redis，之后再存到从节点（主从延迟）</h2><h2 id="redis-用于哪些方面-用户信息，-分布式锁，-主从同步缓存数据"><a href="#redis-用于哪些方面-用户信息，-分布式锁，-主从同步缓存数据" class="headerlink" title="redis 用于哪些方面  用户信息， 分布式锁， 主从同步缓存数据"></a>redis 用于哪些方面  用户信息， 分布式锁， 主从同步缓存数据</h2><h2 id="分布式锁是怎么实现的"><a href="#分布式锁是怎么实现的" class="headerlink" title="分布式锁是怎么实现的"></a>分布式锁是怎么实现的</h2><p>redis setnx指令 finally里面delete  命令执行   要先判断一下当前线程ID 是不是自己的，如果是自己的那就可以删除，不然不能删除</p>
+<h2 id="redisson"><a href="#redisson" class="headerlink" title="redisson"></a>redisson</h2><h2 id="mysql优化-开启慢查询-slow-log-开启-explain-一下，然后把对应不走索引的给查出来"><a href="#mysql优化-开启慢查询-slow-log-开启-explain-一下，然后把对应不走索引的给查出来" class="headerlink" title="mysql优化  开启慢查询 slow_log 开启  explain 一下，然后把对应不走索引的给查出来"></a>mysql优化  开启慢查询 slow_log 开启  explain 一下，然后把对应不走索引的给查出来</h2><h2 id="mysql-有哪些索引-原理"><a href="#mysql-有哪些索引-原理" class="headerlink" title="mysql 有哪些索引 原理"></a>mysql 有哪些索引 原理</h2><p>普通索引、唯一索引、聚集索引、主键索引、全文索引  B+树</p>
+<h2 id="索引下推是什么原理"><a href="#索引下推是什么原理" class="headerlink" title="索引下推是什么原理"></a>索引下推是什么原理</h2><p>在不使用ICP的情况下，在使用非主键索引（又叫普通索引或者二级索引）进行查询时，存储引擎通过索引检索到数据，<br>然后返回给MySQL服务器，服务器然后判断数据是否符合条件 。<br>在使用ICP的情况下，如果存在某些被索引的列的判断条件时，MySQL服务器将这一部分判断条件传递给存储引擎，<br>然后由存储引擎通过判断索引是否符合MySQL服务器传递的条件，只有当索引符合条件时才会将数据检索出来返回给MySQL服务器 。<br>索引条件下推优化可以减少存储引擎查询基础表的次数，也可以减少MySQL服务器从存储引擎接收数据的次数。</p>
+<h2 id="mysql-还有其他什么日志吗-undo-redo"><a href="#mysql-还有其他什么日志吗-undo-redo" class="headerlink" title="mysql 还有其他什么日志吗  undo  redo"></a>mysql 还有其他什么日志吗  undo  redo</h2><h2 id="分布式事务-二段式-三段线"><a href="#分布式事务-二段式-三段线" class="headerlink" title="分布式事务 二段式 三段线"></a>分布式事务 二段式 三段线</h2><h2 id="最终一致性-跟分布式事务有什么区别"><a href="#最终一致性-跟分布式事务有什么区别" class="headerlink" title="最终一致性 跟分布式事务有什么区别"></a>最终一致性 跟分布式事务有什么区别</h2><h2 id="分布式事务-CAP理论-base理论"><a href="#分布式事务-CAP理论-base理论" class="headerlink" title="分布式事务 CAP理论 base理论"></a>分布式事务 CAP理论 base理论</h2><h2 id="多线程编程-线程池-类及构造参数"><a href="#多线程编程-线程池-类及构造参数" class="headerlink" title="多线程编程 线程池 类及构造参数"></a>多线程编程 线程池 类及构造参数</h2><h2 id="线程池是怎么工作的"><a href="#线程池是怎么工作的" class="headerlink" title="线程池是怎么工作的"></a>线程池是怎么工作的</h2><h2 id="最大线程数-如果队列满了咋办"><a href="#最大线程数-如果队列满了咋办" class="headerlink" title="最大线程数 如果队列满了咋办"></a>最大线程数 如果队列满了咋办</h2><h2 id="worker队列要怎么设置"><a href="#worker队列要怎么设置" class="headerlink" title="worker队列要怎么设置"></a>worker队列要怎么设置</h2><h2 id="如果队列都满了，这个时候你要放到mq队列"><a href="#如果队列都满了，这个时候你要放到mq队列" class="headerlink" title="如果队列都满了，这个时候你要放到mq队列"></a>如果队列都满了，这个时候你要放到mq队列</h2><h2 id="jvm-内存结构"><a href="#jvm-内存结构" class="headerlink" title="jvm 内存结构"></a>jvm 内存结构</h2><h2 id="jvm-多大就会放到大内存里面-是一个参数"><a href="#jvm-多大就会放到大内存里面-是一个参数" class="headerlink" title="jvm 多大就会放到大内存里面 是一个参数"></a>jvm 多大就会放到大内存里面 是一个参数</h2><h2 id="老年代full-GC-G1-CMS-GC-过程"><a href="#老年代full-GC-G1-CMS-GC-过程" class="headerlink" title="老年代full GC  G1 CMS GC 过程"></a>老年代full GC  G1 CMS GC 过程</h2><h1 id="美的二面"><a href="#美的二面" class="headerlink" title="美的二面"></a>美的二面</h1><h2 id="dubbo文档"><a href="#dubbo文档" class="headerlink" title="dubbo文档"></a>dubbo文档</h2><h2 id="MQ对比"><a href="#MQ对比" class="headerlink" title="MQ对比"></a>MQ对比</h2><h2 id="数据库事务写成功之后往MQ-里面写"><a href="#数据库事务写成功之后往MQ-里面写" class="headerlink" title="数据库事务写成功之后往MQ 里面写"></a>数据库事务写成功之后往MQ 里面写</h2><h2 id="事务中是否需要RPC"><a href="#事务中是否需要RPC" class="headerlink" title="事务中是否需要RPC"></a>事务中是否需要RPC</h2><h2 id="高可用方案-从前端到后端"><a href="#高可用方案-从前端到后端" class="headerlink" title="高可用方案 从前端到后端"></a>高可用方案 从前端到后端</h2><p>前端nginx做负载均衡，redis做查询缓存，mysql集群做负载</p>
+<p>1，系统拆分  dubbo 加zk 分布式<br>2，Cache(缓存)  读多写少 redis做缓存<br>大部分的高并发场景，都是读多写少，那你完全可以在数据库和缓存里都写一份，然后读的时候大量走缓存不就得了。毕竟人家 redis 轻轻松松单机几万的并发。<br>3，MQ  把数据库操作先放到MQ 排队执行<br>大量的写请求灌入 MQ 里，排队慢慢玩儿，后边系统消费后慢慢写，控制在 mysql 承载范围之内<br>4，数据库拆分(分库分表) Sharding-JDBC<br>当数据量达到某个阀值时，数据库拆分就会成为一个紧急的需求。一般从业务上进行垂直拆分，如果业务单一，也可从水平上进行拆分。<br>5，读写分离<br>主库写入，从库读取，搞一个读写分离。读流量太多的时候，还可以加更多的从库。<br>6，ElasticSearch<br>7，CDN 加速  把页面资源CDN加速一下<br>其中有速度快的路径有慢的路径，如何选择最优路径，把每个角落的请求快速的传递到机房，这就是 CDN 的功能。<br>8，HTML 页面静态化<br>静态页面部署在 NGNIX 中，收到用户请求，Ngnix 不需要访问 Webapp 即可响应用户，减少应用渲染页面的时间，同时也降低了应用的压力。</p>
+<h1 id="卓志"><a href="#卓志" class="headerlink" title="卓志"></a>卓志</h1><h2 id="微服务的技术选项"><a href="#微服务的技术选项" class="headerlink" title="微服务的技术选项"></a>微服务的技术选项</h2><p>易于部署，各个工程各不影响，分模块部署，负载均衡</p>
+<h2 id="dubbo注册与发现过程"><a href="#dubbo注册与发现过程" class="headerlink" title="dubbo注册与发现过程"></a>dubbo注册与发现过程</h2><p>服务提供者 容器container 服务调用者 注册中心 counter</p>
+<h2 id="dubbo负载均衡-几种"><a href="#dubbo负载均衡-几种" class="headerlink" title="dubbo负载均衡 几种"></a>dubbo负载均衡 几种</h2><p>Dubbo 提供了4种负载均衡实现，分别是基于权重随机算法的 RandomLoadBalance、基于最少活跃调用数算法的 LeastActiveLoadBalance、<br>基于 hash 一致性的 ConsistentHashLoadBalance，以及基于加权轮询算法的 RoundRobinLoadBalance</p>
+<h2 id="dubbo遇到过什么问题吗？"><a href="#dubbo遇到过什么问题吗？" class="headerlink" title="dubbo遇到过什么问题吗？"></a>dubbo遇到过什么问题吗？</h2><p>1，父子类有相同属性时值丢失<br>dubbo默认采用的是hessian序列化&amp;反序列化方式，JavaDeserializer在获取fileds时，采用了Map去重。<br>但是在读取值时，根据serializer的顺序，对于同名字段，子类的该字段值会被赋值两次，总是被父类的值覆盖，导致子类的字段值丢失。<br>2，序列化问题复杂对象变成了map<br>3，Data length too large<br>超过8k   修改 payload的值，将其调大 可以调节到16k<br>4，服务调用失败  No provider available<br>存在一个或多个Provider服务，但是version或者group不匹配。<br>例如Consumer侧申明version=1.0.0，而Provider侧申明version=2.0.0，或者group不匹配，都会出现这个ERROR。</p>
+<h2 id="dubbo遇到过什么序列化的问题"><a href="#dubbo遇到过什么序列化的问题" class="headerlink" title="dubbo遇到过什么序列化的问题"></a>dubbo遇到过什么序列化的问题</h2><h2 id="dubbo参数对象如果是object属性-可以传递过去吗"><a href="#dubbo参数对象如果是object属性-可以传递过去吗" class="headerlink" title="dubbo参数对象如果是object属性 可以传递过去吗"></a>dubbo参数对象如果是object属性 可以传递过去吗</h2><p>最近遇到一个问题，B 服务调用 A 服务时，返回值反序列化时，POJO对象变成了Map类型。<br>在A服务单独测试的时候一直还原不了，在 B 服务进行测试的时候，跟到反序列化数据时才看到原因。<br>A 服务的接口方法返回的结果是一个Object（或 Map&lt;String, Object&gt; 中的 value），<br>Object 的具体实现不在 A 服务的 API 包中，因此在 B 服务找不到该返回值真正的实现类，<br>在 B 服务调用接口返回结果反序列化找不到具体的类型时，就会以 Map 类型进行实例化。</p>
+<h3 id="Java序列化："><a href="#Java序列化：" class="headerlink" title="Java序列化："></a>Java序列化：</h3><p>Java序列化会把要序列化的对象类的元数据和业务数据全部序列化为字节流，而且是把整个继承关系上的东西全部序列化了。<br>它序列化出来的字节流是对那个对象结构到内容的完全描述，包含所有的信息，因此效率较低而且字节流比较大。<br>但是由于确实是序列化了所有内容，所以可以说什么都可以传输，因此也更可用和可靠。</p>
+<h3 id="hession序列化："><a href="#hession序列化：" class="headerlink" title="hession序列化："></a>hession序列化：</h3><p>它的实现机制是着重于数据，附带简单的类型信息的方法。就像Integer a = 1，<br>hessian会序列化成I 1这样的流，I表示int or Integer，1就是数据内容。而对于复杂对象，通过Java的反射机制，<br>hessian把对象所有的属性当成一个Map来序列化，产生类似M className propertyName1 I 1 propertyName S stringValue<br>（大概如此，确切的忘了）这样的流，包含了基本的类型描述和数据内容。而在序列化过程中，如果一个对象之前出现过，<br>hessian会直接插入一个R index这样的块来表示一个引用位置，从而省去再次序列化和反序列化的时间。<br>这样做的代价就是hessian需要对不同的类型进行不同的处理（因此hessian直接偷懒不支持short），<br>而且遇到某些特殊对象还要做特殊的处理（比如StackTraceElement）。而且同时因为并没有深入到实现内部去进行序列化，<br>所以在某些场合会发生一定的不一致，比如通过Collections.synchronizedMap得到的map。</p>
+<h2 id="zk特点-CAP-理论-CP-consist"><a href="#zk特点-CAP-理论-CP-consist" class="headerlink" title="zk特点 CAP 理论  CP  consist"></a>zk特点 CAP 理论  CP  consist</h2><h2 id="zk集群挂了会怎么办会投票-【myid-，zid】"><a href="#zk集群挂了会怎么办会投票-【myid-，zid】" class="headerlink" title="zk集群挂了会怎么办会投票 【myid ，zid】"></a>zk集群挂了会怎么办会投票 【myid ，zid】</h2><h2 id="MQ三大特性-解耦异步削峰"><a href="#MQ三大特性-解耦异步削峰" class="headerlink" title="MQ三大特性 解耦异步削峰"></a>MQ三大特性 解耦异步削峰</h2><h2 id="MQ-消息丢失"><a href="#MQ-消息丢失" class="headerlink" title="MQ 消息丢失"></a>MQ 消息丢失</h2><h2 id="rebbitMQ持久化是怎么持久化"><a href="#rebbitMQ持久化是怎么持久化" class="headerlink" title="rebbitMQ持久化是怎么持久化"></a>rebbitMQ持久化是怎么持久化</h2><p>将queue的持久化标识durable设置为true,则代表是一个持久的队列</p>
+<h2 id="redis分布式锁-lua脚本"><a href="#redis分布式锁-lua脚本" class="headerlink" title="redis分布式锁 lua脚本"></a>redis分布式锁 lua脚本</h2><p>redisson </p>
+<h2 id="redis如何保证原子性"><a href="#redis如何保证原子性" class="headerlink" title="redis如何保证原子性"></a>redis如何保证原子性</h2><p>单线程的</p>
+<h2 id="既然是单线程的，如何做到异步和非阻塞的"><a href="#既然是单线程的，如何做到异步和非阻塞的" class="headerlink" title="既然是单线程的，如何做到异步和非阻塞的"></a>既然是单线程的，如何做到异步和非阻塞的</h2><p>要明白他的线程模型是IO多路复用模型 主要核心是select channel  bufuer类 就是一个线程负责接收连接，其他线程负责解决对应的事务</p>
+<h2 id="redis-可以用来做什么"><a href="#redis-可以用来做什么" class="headerlink" title="redis 可以用来做什么"></a>redis 可以用来做什么</h2><p>1，缓存  2，分布式锁  3，zset 排名 4，索引 </p>
+<h2 id="redis-秒杀的功能是怎么做的"><a href="#redis-秒杀的功能是怎么做的" class="headerlink" title="redis 秒杀的功能是怎么做的"></a>redis 秒杀的功能是怎么做的</h2><p>1，限流和降级 按钮置灰 nginx限流  2，队列削峰MQ  3，服务层分包部署  4，查询的时候查询redis 缓存</p>
+<h2 id="多线程是怎么用的"><a href="#多线程是怎么用的" class="headerlink" title="多线程是怎么用的"></a>多线程是怎么用的</h2><p>多线程newcache 保证线程无线 CPU消耗比较大  newfixed 线程数固定 但是队列无线，内存不友好</p>
+<h2 id="有无遇到OOM的问题"><a href="#有无遇到OOM的问题" class="headerlink" title="有无遇到OOM的问题"></a>有无遇到OOM的问题</h2><h2 id="jvm垃圾回收机制-标记计数算法-可达性算法-标记清理-标记整理-复制算法"><a href="#jvm垃圾回收机制-标记计数算法-可达性算法-标记清理-标记整理-复制算法" class="headerlink" title="jvm垃圾回收机制 标记计数算法 可达性算法 标记清理 标记整理 复制算法"></a>jvm垃圾回收机制 标记计数算法 可达性算法 标记清理 标记整理 复制算法</h2><h2 id="几个垃圾收集器-CMS标记清理-G1"><a href="#几个垃圾收集器-CMS标记清理-G1" class="headerlink" title="几个垃圾收集器  CMS标记清理  G1"></a>几个垃圾收集器  CMS标记清理  G1</h2><h2 id="服务挂了的话怎么办-linux-怎么去查服务器日志"><a href="#服务挂了的话怎么办-linux-怎么去查服务器日志" class="headerlink" title="服务挂了的话怎么办 linux 怎么去查服务器日志"></a>服务挂了的话怎么办 linux 怎么去查服务器日志</h2><p>linux日志文件说明<br>/var/log/message 系统启动后的信息和错误日志，是Red Hat Linux中最常用的日志之一<br>/var/log/secure 与安全相关的日志信息<br>/var/log/maillog 与邮件相关的日志信息<br>/var/log/cron 与定时任务相关的日志信息<br>/var/log/spooler 与UUCP和news设备相关的日志信息<br>/var/log/boot.log 守护进程启动和停止相关的日志消息<br>/var/log/wtmp 该日志文件永久记录每个用户登录、注销及系统的启动、停机的事件</p>
+<h3 id="Java应用程序的问题：发生OOM导致进程Crash"><a href="#Java应用程序的问题：发生OOM导致进程Crash" class="headerlink" title="Java应用程序的问题：发生OOM导致进程Crash"></a>Java应用程序的问题：发生OOM导致进程Crash</h3><p>最常见的是发生堆内存异常“java.lang.OutOfMemoryError: Java heap space”，排查步骤如下：<br>Step1: 查看JVM参数 -XX:+HeapDumpOnOutOfMemoryError 和 -XX:HeapDumpPath=*/java.hprof；<br>Step2: 根据HeapDumpPath指定的路径查看是否产生dump文件；<br>Step3: 若存在dump文件，使用Jhat、VisualVM等工具分析即可；</p>
+<h3 id="JVM出错：JVM或JDK自身的Bug导致进程Crash"><a href="#JVM出错：JVM或JDK自身的Bug导致进程Crash" class="headerlink" title="JVM出错：JVM或JDK自身的Bug导致进程Crash"></a>JVM出错：JVM或JDK自身的Bug导致进程Crash</h3><p>当JVM出现致命错误时，会生成一个错误文件 hs_err_pid.log，其中包括了导致jvm crash的重要信息，<br>可以通过分析该文件定位到导致crash的根源，从而改善以保证系统稳定。当出现crash时，该文件默认会生成到工作目录下，<br>然而可以通过jvm参数-XX:ErrorFile指定生成路径。</p>
+<h3 id="被操作系统OOM-Killer"><a href="#被操作系统OOM-Killer" class="headerlink" title="被操作系统OOM-Killer"></a>被操作系统OOM-Killer</h3><p>Step1: 查看操作系统日志：sudo grep –color “java” /var/log/messages，确定Java进程是否被操作系统Kill；<br>Step2: 若被操作系统Kill，执行dmesg命令查看系统各进程资源占用情况，明确Java占用内存是否合理，<br>以及是否有其它进程不合理的占用了大量内存空间；</p>
+<h2 id="数据库横表与纵表的区分-没什么卵用-都是到横表的"><a href="#数据库横表与纵表的区分-没什么卵用-都是到横表的" class="headerlink" title="数据库横表与纵表的区分  没什么卵用 都是到横表的"></a>数据库横表与纵表的区分  没什么卵用 都是到横表的</h2><p> 横表就是普通的建表方式，如一个表结构为： 主键、字段1、字段2、字段3。。。 如果变成纵表后，<br> 则表结构为： 主键、字段代码、字段值。 而字段代码则为字段1、字段2、字段3。</p>
+<h2 id="TIDB-最新数据库"><a href="#TIDB-最新数据库" class="headerlink" title="TIDB 最新数据库"></a>TIDB 最新数据库</h2><p>mysql的一个封装，加快查询效率</p>
+<h2 id="tcp的头标记"><a href="#tcp的头标记" class="headerlink" title="tcp的头标记"></a>tcp的头标记</h2><h2 id="rpc-主要框架及对比-dubbo-grpc-thrift-dubbox-motan"><a href="#rpc-主要框架及对比-dubbo-grpc-thrift-dubbox-motan" class="headerlink" title="rpc 主要框架及对比  dubbo  grpc  thrift dubbox  motan"></a>rpc 主要框架及对比  dubbo  grpc  thrift dubbox  motan</h2><p>grpc是一个轻量级的java RPC框架。它支持服务注册和发现。<br>dubbox有比价完善的服务治理模型，其包含ZK注册中心，服务监控等，可以很方便的为我们服务。<br>motan新浪微博开源的RPC框架<br>grpc是Google出品，使用了PB协议，但是由于它出现的比较晚，还不怎么成熟，而且采用http协议，非常适合现在的微服务，<br>    不过性能上差了许多，而且像服务治理与监控都需要额外的开发工作，所以放弃grpc。<br>thrift和grpc一样，性能优越，但是开发难度相比较于dubbox和motan也是高了一点点，<br>    需要编写proto文件（其实对于程序员来说这算不上难度）。像服务治理与监控也是需要额外的开发工作。<br>dubbo比较老了，直接弃用。<br>dubbox和后来的motan都比较适合我们的团队。dubbox后来经过当当的开发，引入了rest风格的http协议，<br>并且还支持kryo/fst/dubbo/thrift等其他协议，而且其他团队也在使用dubbo，集成方便，服务治理监控功能齐全，所以最终采用dubbox。<br>其实我个人而言还是喜欢thrift，毕竟性能优越，在大型分布式系统中，哪怕一点点性能提升累计在一起也是很可观的。<br>不过再具体选型的过程中还要结合团队目前的状况和团队其他开发人员的接受程度进行取舍。</p>
+<h1 id="易工品"><a href="#易工品" class="headerlink" title="易工品"></a>易工品</h1><h2 id="springcloud-alibaba-跟springcloud的区别"><a href="#springcloud-alibaba-跟springcloud的区别" class="headerlink" title="springcloud alibaba 跟springcloud的区别"></a>springcloud alibaba 跟springcloud的区别</h2><p>注册中心不一样 nacos 集成了Ribbon eureka</p>
+<h2 id="最新关注技术点-tidb-优点"><a href="#最新关注技术点-tidb-优点" class="headerlink" title="最新关注技术点 tidb 优点"></a>最新关注技术点 tidb 优点</h2><h2 id="做的业务点"><a href="#做的业务点" class="headerlink" title="做的业务点"></a>做的业务点</h2><h2 id="zk的业务场景-zk的特点"><a href="#zk的业务场景-zk的特点" class="headerlink" title="zk的业务场景 zk的特点"></a>zk的业务场景 zk的特点</h2><h2 id="rocketmq-卡夫卡-和-rabbitmq的比较"><a href="#rocketmq-卡夫卡-和-rabbitmq的比较" class="headerlink" title="rocketmq 卡夫卡 和 rabbitmq的比较"></a>rocketmq 卡夫卡 和 rabbitmq的比较</h2><p>吞吐量 ：卡夫卡》rocketmq》rabbitmq<br>接收的模式：卡夫卡拉取：rabbitmq 推拉</p>
+<h2 id="所有人都订阅了这个消息，推送消息的话，所有都接收的话卡夫卡合适吗？"><a href="#所有人都订阅了这个消息，推送消息的话，所有都接收的话卡夫卡合适吗？" class="headerlink" title="所有人都订阅了这个消息，推送消息的话，所有都接收的话卡夫卡合适吗？"></a>所有人都订阅了这个消息，推送消息的话，所有都接收的话卡夫卡合适吗？</h2><h2 id="财务金额用的是什么类型存储，怎么去做取整的操作"><a href="#财务金额用的是什么类型存储，怎么去做取整的操作" class="headerlink" title="财务金额用的是什么类型存储，怎么去做取整的操作"></a>财务金额用的是什么类型存储，怎么去做取整的操作</h2><h2 id="mysql的变更通知"><a href="#mysql的变更通知" class="headerlink" title="mysql的变更通知"></a>mysql的变更通知</h2><h2 id="单元测试是怎么做的"><a href="#单元测试是怎么做的" class="headerlink" title="单元测试是怎么做的"></a>单元测试是怎么做的</h2><p>Junit框架，在大多数java的开发环境中已经集成，</p>
+<h2 id="生产故障"><a href="#生产故障" class="headerlink" title="生产故障"></a>生产故障</h2><h2 id="图数据库和时序数据库"><a href="#图数据库和时序数据库" class="headerlink" title="图数据库和时序数据库"></a>图数据库和时序数据库</h2><h2 id="承担什么责任-做一个项目碰到什么难题"><a href="#承担什么责任-做一个项目碰到什么难题" class="headerlink" title="承担什么责任  做一个项目碰到什么难题"></a>承担什么责任  做一个项目碰到什么难题</h2><p>电商  支付模块 </p>
+<p>奥悦家<br>用户支付同步天问接口回调很慢的话怎么办  ，然后会导致用户重复缴费两次<br>1，先异步返回，然后给数据库设置一个在缴费中的标志位，返回给业主说正在缴费中<br>2，起一个线程去不断查询天问系统接口，然后接收回调接口的返回<br>3，在缴费之后就先用redis把查询的费用设置为0，就是说先去redis 查询费用，如果没有的话就去天问查，如果有的话就看多少钱<br>使用dubbo中遇到什么问题<br>序列化的问题—-复杂对象的时候会 变成map<br>服务调用失败  No provider available—–版本号不一致<br>Data length too large 超过8k——-修改 payload的值，将其调大 可以调节到16k</p>
+<p>奥悦团购  超卖库存的问题 秒杀<br>1前端<br>面对高并发的抢购活动，前端常用的三板斧是【扩容】【静态化】【限流】<br>　　A：扩容<br>　　加机器，这是最简单的方法，通过增加前端池的整体承载量来抗峰值。<br>　　B：静态化<br>　　将活动页面上的所有可以静态的元素全部静态化，并尽量减少动态元素。通过CDN来抗峰值。<br>　　C：限流<br>　　一般都会采用IP级别的限流，即针对某一个IP，限制单位时间内发起请求数量。<br>　　或者活动入口的时候增加游戏或者问题环节进行消峰操作。<br>　　<br>2后端<br>A：将存库从MySQL前移到Redis中，所有的写操作放到内存中，由于Redis中不存在锁故不会出现互相等待，<br>并且由于Redis的写性能和读性能都远高于MySQL，<br>这就解决了高并发下的性能问题。然后通过队列等异步手段，将变化的数据异步写入到DB中。<br>B：引入队列，然后将所有写DB操作在单队列中排队，完全串行处理。<br>当达到库存阀值的时候就不在消费队列，并关闭购买功能。这就解决了超卖问题。<br>C：利用Java的锁机制CAS来实现减库存操作<br>D：写sql乐观锁的概念，增加了版本号，<br>//1.查询出商品信息<br>select stock, version from t_goods where id=1;<br>//2.根据商品信息生成订单<br>insert into t_orders (id,goods_id) values (null,1);<br>//3.修改商品库存<br>update t_goods set stock=stock-1, version = version+1 where id=1, version=version;<br>当A线程来更新数量的时候先看版本号有没有动，如果已经变了那就不改并且返回，如果没变，这个时候就更改库存，并且把版本号加一<br>E：分布式锁<br>setnx指令，如果能拿到对应标志位的锁的话，那就成功获取锁，并且更改库存，如果不行的话，那就直接返回抢购失败</p>
+<h1 id="中移"><a href="#中移" class="headerlink" title="中移"></a>中移</h1><h2 id="maven调用链依赖重复依赖是怎么解决的"><a href="#maven调用链依赖重复依赖是怎么解决的" class="headerlink" title="maven调用链依赖重复依赖是怎么解决的"></a>maven调用链依赖重复依赖是怎么解决的</h2><p>当一个项目中出现重复的依赖包时，maven 2.0.9之后的版本会用如下的规则来决定使用哪一个版本的包：<br>最短路径原则<br>比如有如下两个依赖关系：<br>A -&gt; B -&gt; C -&gt; D(V1)<br>F -&gt; G -&gt; D(V2)<br>这个时候项目中就出现了两个版本的D，这时maven会采用最短路径原则，选择V2版本的D，因为V1版本的D是由A包间接依赖的，整个依赖路径长度为3，而V2版本的D是由F包间接依赖的，整个依赖路径长度为2。<br>声明优先原则<br>假设有如下两个依赖关系：<br>A -&gt; B -&gt; D(V1)<br>F -&gt; G -&gt; D(V2)<br>这个时候因为两个版本的D的依赖路径都是一样长，最短路径原则就失效了。这个时候Maven的解决方案是：<br>按照依赖包在pom.xml中声明的先后顺序，优先选择先声明的包</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li></ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://xiexin.gitee.io/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/01/09/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          mybatis源码解析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/26/java%E5%88%87%E9%9D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">aop</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="知识总结" data-title="java面试总结" data-url="https://xiexin.gitee.io/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wonderfulxin"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2025 xiexin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: false
+	}
+</script>
+
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">JAVA资深程序猿</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
