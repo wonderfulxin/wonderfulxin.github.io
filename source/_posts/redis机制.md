@@ -183,3 +183,9 @@ Redis增量复制是指Slave初始化后开始正常工作时主服务器发生�
 分布式多个地方都加锁，只有超过一半的锁成功了 才说明成功加锁了
 # 读写锁
 读多写少，读读不互斥  读写互斥  写写互斥
+
+# redis工具使用
+删除CacheRefresh开头的数据
+```bash
+redis-cli --scan --pattern "CacheRefresh:*" | xargs redis-cli del
+```
