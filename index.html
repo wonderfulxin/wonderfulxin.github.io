@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://xiexin.gitee.io">
+  <link rel="dns-prefetch" href="https://wonderfulxin.github.io">
   <title>wonderful的自由空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="好的机遇总是留给有准备之人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="wonderful的自由空间">
-<meta property="og:url" content="https://xiexin.gitee.io/index.html">
+<meta property="og:url" content="https://wonderfulxin.github.io/index.html">
 <meta property="og:site_name" content="wonderful的自由空间">
 <meta property="og:description" content="好的机遇总是留给有准备之人">
 <meta property="og:locale" content="zh_CN">
@@ -45,7 +45,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -103,7 +103,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -154,19 +154,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-arthas使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/arthas使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/05/16/arthas%E4%BD%BF%E7%94%A8/">arthas使用</a>
+      <a class="article-title" href="/2025/05/16/java/arthas%E4%BD%BF%E7%94%A8/">arthas使用</a>
     </h1>
   
 
         
-        <a href="/2025/05/16/arthas%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <a href="/2025/05/16/java/arthas%E4%BD%BF%E7%94%A8/" class="archive-article-date">
   	<time datetime="2025-05-16T07:06:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-05-16</time>
 </a>
         
@@ -175,15 +175,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要:arthas使用小技巧</p>
-<h1 id="arthas的使用去排查线上问题"><a href="#arthas的使用去排查线上问题" class="headerlink" title="arthas的使用去排查线上问题"></a>arthas的使用去排查线上问题</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>直接解压arthas包，<a target="_blank" rel="noopener" href="https://arthas.aliyun.com/doc/download.html">arthas下载包</a>，<br>点击之后进入阿里的下载页面</p>
-<h3 id="用-as-sh-启动"><a href="#用-as-sh-启动" class="headerlink" title="用 as.sh 启动"></a>用 as.sh 启动</h3><p><code>./as.sh </code></p>
-<h3 id="用-arthas-boot-启动"><a href="#用-arthas-boot-启动" class="headerlink" title="用 arthas-boot 启动"></a>用 arthas-boot 启动</h3><p><code>java -jar arthas-boot.jar</code></p>
-<p>#线上问题排查</p>
-<h2 id="查看线上代码跟本地代码是否一致"><a href="#查看线上代码跟本地代码是否一致" class="headerlink" title="查看线上代码跟本地代码是否一致"></a>查看线上代码跟本地代码是否一致</h2><p>通过jad命令编译远程代码可以查看当前代码是否跟本地一致<br><code>jad org.hibernate.EmptyInterceptor</code></p>
-<h2 id="通过watch命令可以查看方法的出参，入参"><a href="#通过watch命令可以查看方法的出参，入参" class="headerlink" title="通过watch命令可以查看方法的出参，入参"></a>通过watch命令可以查看方法的出参，入参</h2><p><code>watch com.midea.ext.common.util.WFCommonUtil getQueueStatus  &#39;&#123;params,returnObj&#125;&#39;  -x 3 -m 140</code></p>
-<h2 id="打印当前的dump日志"><a href="#打印当前的dump日志" class="headerlink" title="打印当前的dump日志"></a>打印当前的dump日志</h2><p>dump java heap, 类似 jmap 命令的 heap dump 功能。</p>
-<p><code>heapdump arthas-output/dump.hprof</code><br>生成文件在arthas-output目录</p>
-
+        
+          <a class="article-more-a" href="/2025/05/16/java/arthas%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
       
 
       
@@ -210,7 +204,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/05/16/arthas%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/05/16/java/arthas%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 
@@ -261,29 +255,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>摘要:markdown语法</p>
-<p>正文:我的第一篇</p>
-<ol>
-<li>斜体和粗体<ol>
-<li><em>斜体</em>或_斜体_</li>
-<li><strong>粗体</strong></li>
-<li><em><strong>加粗斜体</strong></em></li>
-<li><del>删除线</del></li>
-</ol>
-</li>
-<li>分级标题<ol>
-<li><h1 id="一级标题-最大"><a href="#一级标题-最大" class="headerlink" title="一级标题  最大"></a>一级标题  最大</h1></li>
-<li><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></li>
-<li><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3></li>
-<li><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4></li>
-<li><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></li>
-<li><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></li>
-</ol>
-</li>
-<li>&lt; 与 &amp;<br> 1.&lt;会不显示，要写&amp;lt<br> 2.&amp;要写&amp;amp  </li>
-<li>如果你确实想要依赖 Markdown 来插入 <br /> 标签的话，在插入处先按入两个以上的空格然后回车。</li>
-<li>今天又学到一招 Markdown 插入图片的话 ! [ avatar ]( / img/ 20161110153244326.png) 在source文件夹下面加多一个img文件夹<br>  然后用 hexo g  //提交<br>  hexo d //上传  <em>干的漂亮</em></li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2025/05/16/markdown%E8%AF%AD%E6%B3%95/#more">more >></a>
+        
       
 
       
@@ -336,19 +310,19 @@
 
 
   
-    <article id="post-JAVA并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/JAVA并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/20/JAVA%E5%B9%B6%E5%8F%91/">java并发编程</a>
+      <a class="article-title" href="/2021/01/20/java/JAVA%E5%B9%B6%E5%8F%91/">java并发编程</a>
     </h1>
   
 
         
-        <a href="/2021/01/20/JAVA%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+        <a href="/2021/01/20/java/JAVA%E5%B9%B6%E5%8F%91/" class="archive-article-date">
   	<time datetime="2021-01-20T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
 </a>
         
@@ -358,7 +332,7 @@
       
         <p>摘要:java线程内存模型</p>
         
-          <a class="article-more-a" href="/2021/01/20/JAVA%E5%B9%B6%E5%8F%91/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/20/java/JAVA%E5%B9%B6%E5%8F%91/#more">more >></a>
         
       
 
@@ -382,7 +356,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/20/JAVA%E5%B9%B6%E5%8F%91/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/20/java/JAVA%E5%B9%B6%E5%8F%91/">展开全文 >></a>
         </p>
       
 
@@ -412,19 +386,19 @@
 
 
   
-    <article id="post-springcloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/springcloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/13/springcloud/">springcloud</a>
+      <a class="article-title" href="/2021/01/13/java/springcloud/">springcloud</a>
     </h1>
   
 
         
-        <a href="/2021/01/13/springcloud/" class="archive-article-date">
+        <a href="/2021/01/13/java/springcloud/" class="archive-article-date">
   	<time datetime="2021-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
 </a>
         
@@ -434,7 +408,7 @@
       
         <p>摘要:springcloud</p>
         
-          <a class="article-more-a" href="/2021/01/13/springcloud/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/13/java/springcloud/#more">more >></a>
         
       
 
@@ -458,7 +432,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/13/springcloud/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/13/java/springcloud/">展开全文 >></a>
         </p>
       
 
@@ -488,19 +462,19 @@
 
 
   
-    <article id="post-Netty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/Netty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/12/Netty/">Netty</a>
+      <a class="article-title" href="/2021/01/12/java/Netty/">Netty</a>
     </h1>
   
 
         
-        <a href="/2021/01/12/Netty/" class="archive-article-date">
+        <a href="/2021/01/12/java/Netty/" class="archive-article-date">
   	<time datetime="2021-01-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
 </a>
         
@@ -510,7 +484,7 @@
       
         <p>摘要:Netty底层原理</p>
         
-          <a class="article-more-a" href="/2021/01/12/Netty/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/12/java/Netty/#more">more >></a>
         
       
 
@@ -534,7 +508,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/12/Netty/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/12/java/Netty/">展开全文 >></a>
         </p>
       
 
@@ -564,19 +538,19 @@
 
 
   
-    <article id="post-mybatis源码解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/mybatis源码解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/09/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">mybatis源码解析</a>
+      <a class="article-title" href="/2021/01/09/java/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">mybatis源码解析</a>
     </h1>
   
 
         
-        <a href="/2021/01/09/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" class="archive-article-date">
+        <a href="/2021/01/09/java/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" class="archive-article-date">
   	<time datetime="2021-01-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-09</time>
 </a>
         
@@ -586,7 +560,7 @@
       
         <p>摘要:mybatis源码解析</p>
         
-          <a class="article-more-a" href="/2021/01/09/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/09/java/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/#more">more >></a>
         
       
 
@@ -618,7 +592,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/09/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/09/java/mybatis%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">展开全文 >></a>
         </p>
       
 
@@ -648,19 +622,19 @@
 
 
   
-    <article id="post-知识总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/java面试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">java面试总结</a>
+      <a class="article-title" href="/2021/01/07/java/java%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">java面试总结</a>
     </h1>
   
 
         
-        <a href="/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="archive-article-date">
+        <a href="/2021/01/07/java/java%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
   	<time datetime="2021-01-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-07</time>
 </a>
         
@@ -670,7 +644,7 @@
       
         <p>摘要:java面试总结</p>
         
-          <a class="article-more-a" href="/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/#more">more >></a>
+          <a class="article-more-a" href="/2021/01/07/java/java%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/#more">more >></a>
         
       
 
@@ -694,7 +668,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/07/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/07/java/java%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">展开全文 >></a>
         </p>
       
 
@@ -724,19 +698,19 @@
 
 
   
-    <article id="post-java切面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/java切面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/26/java%E5%88%87%E9%9D%A2/">aop</a>
+      <a class="article-title" href="/2020/11/26/java/java%E5%88%87%E9%9D%A2/">aop</a>
     </h1>
   
 
         
-        <a href="/2020/11/26/java%E5%88%87%E9%9D%A2/" class="archive-article-date">
+        <a href="/2020/11/26/java/java%E5%88%87%E9%9D%A2/" class="archive-article-date">
   	<time datetime="2020-11-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-26</time>
 </a>
         
@@ -746,7 +720,7 @@
       
         <p>摘要:aop</p>
         
-          <a class="article-more-a" href="/2020/11/26/java%E5%88%87%E9%9D%A2/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/26/java/java%E5%88%87%E9%9D%A2/#more">more >></a>
         
       
 
@@ -770,7 +744,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/26/java%E5%88%87%E9%9D%A2/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/26/java/java%E5%88%87%E9%9D%A2/">展开全文 >></a>
         </p>
       
 
@@ -800,19 +774,19 @@
 
 
   
-    <article id="post-线程池" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/线程池" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/26/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">线程池</a>
+      <a class="article-title" href="/2020/11/26/java/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">线程池</a>
     </h1>
   
 
         
-        <a href="/2020/11/26/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="archive-article-date">
+        <a href="/2020/11/26/java/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="archive-article-date">
   	<time datetime="2020-11-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-26</time>
 </a>
         
@@ -822,7 +796,7 @@
       
         <p>摘要:线程池</p>
         
-          <a class="article-more-a" href="/2020/11/26/%E7%BA%BF%E7%A8%8B%E6%B1%A0/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/26/java/%E7%BA%BF%E7%A8%8B%E6%B1%A0/#more">more >></a>
         
       
 
@@ -846,7 +820,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/26/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/26/java/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">展开全文 >></a>
         </p>
       
 
@@ -876,19 +850,19 @@
 
 
   
-    <article id="post-锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java/锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/22/%E9%94%81/">锁机制</a>
+      <a class="article-title" href="/2020/04/22/java/%E9%94%81/">锁机制</a>
     </h1>
   
 
         
-        <a href="/2020/04/22/%E9%94%81/" class="archive-article-date">
+        <a href="/2020/04/22/java/%E9%94%81/" class="archive-article-date">
   	<time datetime="2020-04-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
         
@@ -898,7 +872,7 @@
       
         <p>摘要:锁机制</p>
         
-          <a class="article-more-a" href="/2020/04/22/%E9%94%81/#more">more >></a>
+          <a class="article-more-a" href="/2020/04/22/java/%E9%94%81/#more">more >></a>
         
       
 
@@ -926,7 +900,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/22/%E9%94%81/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/22/java/%E9%94%81/">展开全文 >></a>
         </p>
       
 
@@ -1053,7 +1027,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1065,19 +1043,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">H5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,10 +1080,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">H5</a>
               </li>
              
               <li class="article-tag-list-item">
