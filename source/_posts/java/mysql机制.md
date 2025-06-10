@@ -17,11 +17,14 @@ tags:
 
 # 事务须知
 ## 事务实现
+```bash
 start transaction;
 
 commit;
+```
 ## 实现方式
 ### 代码方式
+```bash
 dbc = new DataBaseConnection(); 
 Connection con = dbc.getConnection(); 
 try { 
@@ -35,6 +38,7 @@ try {
 　　 dbc.close(); 
 　　 return -1; 
 } 
+```
 ### 基于 @Transactional 的声明式事务管理
 @Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.REQUIRED)
 

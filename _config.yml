@@ -41,7 +41,9 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: ''
+  wrap: true
+  hljs: false
 
 # Category & Tag
 default_category: uncategorized
@@ -63,7 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: yilia-plus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -77,4 +79,31 @@ deploy:
 # repository: git@gitee.com:xiexin/xiexin.git
 # branch: master
 
-  
+# 新增内容
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
+
+
+# 你的头像url
+avatar: /img/avatar.jpg
+
+# 支付宝二维码图片地址，跟设置头像的方式一样。
+alipay: /img/alipay.jpg
+# 微信二维码图片地址
+weixin: /img/weixin.png
