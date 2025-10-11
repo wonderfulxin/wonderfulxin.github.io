@@ -32,4 +32,6 @@ dump java heap, 类似 jmap 命令的 heap dump 功能。
 ```heapdump arthas-output/dump.hprof```
 生成文件在arthas-output目录
 
+## 直接使用arthas执行线上代码
+```ognl '@com.midea.cache.queue.PortOfApplicationGenerator@refresh()'```
 
