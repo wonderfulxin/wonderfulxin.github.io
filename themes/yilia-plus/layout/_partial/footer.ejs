@@ -1,0 +1,9 @@
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; <% if (theme.since && !isNaN(theme.since) && theme.since < date(new Date(), 'YYYY')) { %><%- theme.since%>-<% } %><%= date(new Date(), 'YYYY') %> <a href="<%- yilia_plus_full_url('/') %>" target="_blank"><%= config.author || config.title %></a>
+    	</div>
+    </div>
+  </div>
+</footer>
